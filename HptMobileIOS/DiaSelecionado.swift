@@ -13,7 +13,7 @@ class DiaSelecionado: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var diaSelecionadoView: UIView!
     @IBOutlet weak var diaLabel: UILabel!
-    @IBOutlet var detalhesTarefaView: DetalhesTarefa!
+    @IBOutlet var detalhesEventoView: DetalhesEvento!
     @IBOutlet weak var descricaoTableView: UITableView!
     
     
@@ -23,7 +23,7 @@ class DiaSelecionado: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         
         diaSelecionadoView.layer.cornerRadius = 10
-        carregarNomes()
+        //carregarNomes()
         alterarDia(dia: dia)
     }
     
@@ -32,8 +32,8 @@ class DiaSelecionado: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return nomes.count
+        return 1
+        //return nomes.count
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -44,7 +44,7 @@ class DiaSelecionado: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "celulaDiaSelecionado", for: indexPath) as! CelulaDiaCalendario
         
-        cell.descricaoLabel.text = nomes[indexPath.row]
+        //cell.descricaoLabel.text = nomes[indexPath.row]
         cell.horarioInicioLabel.text = String(indexPath.row)
         cell.horarioFinalLabel.text = String(indexPath.row)
         
@@ -71,12 +71,14 @@ class DiaSelecionado: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     private func construirDetalhesView(nomeTarefa: String){
-        detalhesTarefaView.center = self.view.center
-        detalhesTarefaView.layer.cornerRadius = 10
-        detalhesTarefaView.alpha = 0
-        self.view.addSubview(detalhesTarefaView)
+        detalhesEventoView.center = self.view.center
+        detalhesEventoView.layer.cornerRadius = 10
+        detalhesEventoView.alpha = 0
+        detalhesEventoView.definirTamanho(largura: view.frame.width, altura: view.frame.height)
+        detalhesEventoView.tarefasTableView.selectRow(at: [0,0], animated: true, scrollPosition: .top)
+        self.view.addSubview(detalhesEventoView)
         UIView.animate(withDuration: 0.3) {
-            self.detalhesTarefaView.alpha = 1
+            self.detalhesEventoView.alpha = 1
         }
         
     }

@@ -22,7 +22,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        //REMOVER
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,11 +44,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func buttonPressed(_ sender: Any) {
-                
+        
+        
+        self.prepare(for: UIStoryboardSegue.init(identifier: "showTabController", source: self, destination: self), sender: self)
+        self.performSegue(withIdentifier: "showTabController", sender: nil)
+        
         let conn = ConexaoWebService()
         conn.inserirParametro(paramKey: "param1", paramValue: loginTextField.text!)
         conn.inserirParametro(paramKey: "param2", paramValue: passTextField.text!)
-        conn.realizarConexao(funcao: "validarLogin", metodo: "POST") { objeto in
+       /* conn.realizarConexao(funcao: "validarLogin", metodo: "POST") { objeto in
                 
                 DispatchQueue.main.async(execute: {
                     var tempDict: Dictionary<String, String>
@@ -59,6 +65,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
                         self.credIncorretasLabel.isHidden=false
                     }
                 })
-        }
+        }*/
     }
 }
