@@ -11,11 +11,11 @@ import UIKit
 
 class HomeView: UITabBarController, UITabBarControllerDelegate {
     
-    public var sessao: String?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(Credenciais.getSessao())
+        print(Credenciais.getAcesso())
         
         
     }
@@ -27,31 +27,26 @@ class HomeView: UITabBarController, UITabBarControllerDelegate {
         case 0:
             
             let vc = navController.topViewController as? AbaGeral
-            vc?.sessao = sessao
             
             break
         case 1:
             
             let vc = navController.topViewController as? AbaClientes
-            vc?.sessao = sessao
             
             break
         case 2:
             
             let vc = navController.topViewController as? AbaAgenda
-            vc?.sessao = sessao
             
             break
         case 3:
             
             let vc = navController.topViewController as? AbaContatos
-            vc?.sessao = sessao
             
             break
         case 4:
             
             let vc = navController.topViewController as? AbaPacotesTabela
-            vc?.sessao = sessao
             
             break
         default:

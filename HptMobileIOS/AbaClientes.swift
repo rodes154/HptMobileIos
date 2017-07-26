@@ -15,8 +15,6 @@ class AbaClientes: UIViewController, UITableViewDelegate, UITableViewDataSource,
     @IBOutlet weak var labelAguarde: UILabel!
     @IBOutlet weak var searchButton: UIBarButtonItem!
     
-    public var sessao: String?
-    
     var nomes: Array<String> = []
     var unidade: Array<String> = []
     

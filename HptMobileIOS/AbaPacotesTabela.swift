@@ -20,7 +20,6 @@ class AbaPacotesTabela: UIViewController, UITableViewDelegate, UITableViewDataSo
     var data: Array<String> = []
     
     public var index: Int?
-    public var sessao: String?
     
     var pesquisando: Bool = false
     

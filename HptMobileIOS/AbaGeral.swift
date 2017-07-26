@@ -9,10 +9,7 @@
 import Foundation
 import UIKit
 
-class AbaGeral: UIViewController {
-    
-    public var sessao: String?
-    
+class AbaGeral: UIViewController {    
     
     
 }

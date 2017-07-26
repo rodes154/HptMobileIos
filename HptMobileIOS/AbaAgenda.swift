@@ -40,7 +40,13 @@ class AbaAgenda: ViewController, UICollectionViewDataSource, UICollectionViewDel
     override func viewDidLoad() {
         definirIndices()
         atualizarMeses()
+        permissao()
         mesAtual = Calendar.current.component(.month, from: dateGlobal)
+    }
+    private func permissao(){
+        if(Credenciais.getAcesso() != 1){
+            self.navigationItem.rightBarButtonItem = nil
+        }
     }
     private func atualizarMeses(){
         mesNavigationItem.title = meses[indiceMes-1]
@@ -133,4 +139,9 @@ class AbaAgenda: ViewController, UICollectionViewDataSource, UICollectionViewDel
         atualizarMeses()
 
     }
+    
+    @IBAction func adcionarEventoButton(_ sender: Any) {
+        performSegue(withIdentifier: "adicionarEvento", sender: self)
+    }
+    
 }

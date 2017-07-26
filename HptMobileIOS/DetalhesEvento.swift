@@ -86,13 +86,5 @@ class DetalhesEvento: UIView, UITableViewDataSource, UITableViewDelegate{
         localLabel.text = data[3]
         horarioLabel.text = "\(data[1]) - \(data[2])"
         tituloLabel.text = data[0]
-    } 
-    
-    @IBAction func concluidoClicked(_ sender: Any) {
-        UIView.animate(withDuration: 0.4, animations: { 
-            self.alpha = 0
-        }) { (finished) in
-           self.removeFromSuperview()
-        }
     }
 }

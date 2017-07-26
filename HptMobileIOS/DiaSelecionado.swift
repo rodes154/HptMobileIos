@@ -58,6 +58,7 @@ class DiaSelecionado: UIViewController, UITableViewDelegate{
         detalhesEventoView.informacoes(data: informacoes)
         self.view.addSubview(detalhesEventoView)
         UIView.animate(withDuration: 0.3) {
+            self.detalhesDiaView.alpha = 0
             self.detalhesEventoView.alpha = 1
         }
         
@@ -76,23 +77,29 @@ class DiaSelecionado: UIViewController, UITableViewDelegate{
         }
         
     }
-    private func construirComentario(){
-        comentariosView.center = self.view.center
-        comentariosView.layer.cornerRadius = 10
-        comentariosView.alpha = 0
-        comentariosView.definirTamanho(largura: view.frame.width, altura: view.frame.height)
-        self.view.addSubview(comentariosView)
-        UIView.animate(withDuration: 0.3) { 
-            self.comentariosView.alpha = 1
-        }
-        
-    }
     
     @IBAction func voltarButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func comentarioButton(_ sender: Any) {
-        construirComentario()
-        
+        comentariosView.load(largura: view.frame.width, altura: view.frame.height, centro: view.center)
+        view.addSubview(comentariosView)
+        UIView.animate(withDuration: 0.3) {
+            self.detalhesEventoView.alpha = 0
+        }
+    }
+    @IBAction func eventoConcluidoButton(_ sender: Any) {
+        self.detalhesDiaView.alpha = 1
+        UIView.animate(withDuration: 0.3, animations: {
+            self.detalhesEventoView.alpha = 0
+        }) { (finished) in
+            self.detalhesEventoView.removeFromSuperview()
+        }
+    }
+    @IBAction func observacoesSalvarButton(_ sender: Any) {
+        self.detalhesEventoView.alpha = 1
+        UIView.animate(withDuration: 0.3) { 
+            self.comentariosView.alpha = 0
+        }
     }
 }

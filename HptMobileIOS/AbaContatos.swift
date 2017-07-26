@@ -16,7 +16,6 @@ class AbaContatos: UIViewController, UITableViewDelegate, UITableViewDataSource,
     
     var rightButtons = [UIBarButtonItem]()
     var searchBar = UISearchBar()
-    var sessao: String?
     
     var nomesArray: Array<String> = []
     var mensagemArray: Array<String> = []
@@ -123,7 +122,7 @@ class AbaContatos: UIViewController, UITableViewDelegate, UITableViewDataSource,
     private func buscarContatos(){
         
         let conn = ConexaoWebService()
-        conn.inserirParametro(paramKey: "code", paramValue: sessao!)
+        conn.inserirParametro(paramKey: "code", paramValue: Credenciais.getSessao()!)
         conn.realizarConexao(funcao: "consultarContatos", metodo: "GET") { (objeto) in
             
             DispatchQueue.main.async(execute: {
