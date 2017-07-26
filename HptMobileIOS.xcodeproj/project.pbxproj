@@ -37,6 +37,7 @@
 		5BFD609E1F0D6EC7001D9C66 /* CelulaChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFD609D1F0D6EC7001D9C66 /* CelulaChat.swift */; };
 		A928207B1F281B6D00958B1D /* ComentariosTarefa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A928207A1F281B6D00958B1D /* ComentariosTarefa.swift */; };
 		A9BE31511F28D458002E476F /* Credenciais.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE31501F28D458002E476F /* Credenciais.swift */; };
+		A9BE31531F28DD55002E476F /* NovoEvento.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE31521F28DD55002E476F /* NovoEvento.swift */; };
 		B10B649BE03C12446FB3F9CC /* Pods_HptMobileIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECFCA1E42A8C6F7329DBFEB /* Pods_HptMobileIOSTests.framework */; };
 		CA6EADAA4C9DDD92834C5D4C /* Pods_HptMobileIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A81407A5F0CF8A61860388CF /* Pods_HptMobileIOSUITests.framework */; };
 /* End PBXBuildFile section */
@@ -100,6 +101,7 @@
 		A81407A5F0CF8A61860388CF /* Pods_HptMobileIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HptMobileIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A928207A1F281B6D00958B1D /* ComentariosTarefa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComentariosTarefa.swift; sourceTree = "<group>"; };
 		A9BE31501F28D458002E476F /* Credenciais.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credenciais.swift; sourceTree = "<group>"; };
+		A9BE31521F28DD55002E476F /* NovoEvento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovoEvento.swift; sourceTree = "<group>"; };
 		B6B8191AFF20B396D9A51A8B /* Pods-HptMobileIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HptMobileIOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-HptMobileIOS/Pods-HptMobileIOS.release.xcconfig"; sourceTree = "<group>"; };
 		E0CC94319D7F24AE6590B8AA /* Pods_HptMobileIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HptMobileIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9D94F44A43D03A3F2FAB99F /* Pods-HptMobileIOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HptMobileIOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HptMobileIOSUITests/Pods-HptMobileIOSUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				5BB89C8C1F190C83008A7ABB /* DetalhesEvento.swift */,
 				5B38AA1A1F27848700ACE4C3 /* DetalhesDia.swift */,
 				A928207A1F281B6D00958B1D /* ComentariosTarefa.swift */,
+				A9BE31521F28DD55002E476F /* NovoEvento.swift */,
 			);
 			name = AbaAgenda;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				5B07CD6A1F26205900877676 /* CelulaPadraoSimples.swift in Sources */,
 				5BFD609C1F0D6602001D9C66 /* AbaContatosChat.swift in Sources */,
 				5B92F2671F059A4A0094A96B /* AbaAgenda.swift in Sources */,
+				A9BE31531F28DD55002E476F /* NovoEvento.swift in Sources */,
 				5B8C27EB1F0ADFD400A35962 /* CelulaPadrao.swift in Sources */,
 				5B92F26B1F06EB5D0094A96B /* DiaSelecionado.swift in Sources */,
 				5B92F2641F058E660094A96B /* AbaClientes.swift in Sources */,

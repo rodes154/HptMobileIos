@@ -323,23 +323,51 @@
             </objects>
             <point key="canvasLocation" x="4033" y="-21"/>
         </scene>
-        <!--View Controller-->
+        <!--Novo Evento-->
         <scene sceneID="lvi-4k-4jd">
             <objects>
-                <viewController id="1OC-YX-5RF" sceneMemberID="viewController">
+                <viewController id="1OC-YX-5RF" customClass="NovoEvento" customModule="HptMobileIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CyI-zD-UjS"/>
                         <viewControllerLayoutGuide type="bottom" id="T6T-8A-m7l"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8hK-Og-bnT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TOm-HB-E9e">
+                                <rect key="frame" x="0.0" y="20" width="375" height="1480"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Bo8-TD-RHY">
+                                        <rect key="frame" x="128" y="1442" width="118" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="7Xd-M8-MUr"/>
+                                            <constraint firstAttribute="width" constant="114" id="hle-rC-wwB"/>
+                                        </constraints>
+                                    </slider>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Bo8-TD-RHY" firstAttribute="top" secondItem="TOm-HB-E9e" secondAttribute="top" constant="1442" id="2Aj-Uo-v1k"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bo8-TD-RHY" secondAttribute="trailing" constant="131" id="46P-ji-ZqQ"/>
+                                    <constraint firstItem="Bo8-TD-RHY" firstAttribute="centerX" secondItem="TOm-HB-E9e" secondAttribute="centerX" id="RJg-t9-6q6"/>
+                                    <constraint firstAttribute="bottom" secondItem="Bo8-TD-RHY" secondAttribute="bottom" constant="8" id="ZhQ-mm-bAu"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TOm-HB-E9e" firstAttribute="top" secondItem="CyI-zD-UjS" secondAttribute="bottom" id="H2I-3B-BZs"/>
+                            <constraint firstItem="TOm-HB-E9e" firstAttribute="leading" secondItem="8hK-Og-bnT" secondAttribute="leading" id="gu5-sK-yNT"/>
+                            <constraint firstAttribute="trailing" secondItem="TOm-HB-E9e" secondAttribute="trailing" id="hoa-7c-VzJ"/>
+                            <constraint firstItem="T6T-8A-m7l" firstAttribute="top" secondItem="TOm-HB-E9e" secondAttribute="bottom" id="y1w-Pf-UXe"/>
+                        </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="1500"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="38J-6w-ehJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4822" y="329"/>
+            <point key="canvasLocation" x="5488.8000000000002" y="-1.7991004497751126"/>
         </scene>
         <!--Dia Selecionado-->
         <scene sceneID="xMJ-Xv-0MY">

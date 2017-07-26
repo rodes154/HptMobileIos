@@ -14,8 +14,7 @@ class HomeView: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(Credenciais.getSessao())
-        print(Credenciais.getAcesso())
+        
         
         
     }
@@ -26,27 +25,27 @@ class HomeView: UITabBarController, UITabBarControllerDelegate {
         switch tab {
         case 0:
             
-            let vc = navController.topViewController as? AbaGeral
+            _ = navController.topViewController as? AbaGeral
             
             break
         case 1:
             
-            let vc = navController.topViewController as? AbaClientes
+            _ = navController.topViewController as? AbaClientes
             
             break
         case 2:
             
-            let vc = navController.topViewController as? AbaAgenda
+            _ = navController.topViewController as? AbaAgenda
             
             break
         case 3:
             
-            let vc = navController.topViewController as? AbaContatos
+            _ = navController.topViewController as? AbaContatos
             
             break
         case 4:
             
-            let vc = navController.topViewController as? AbaPacotesTabela
+            _ = navController.topViewController as? AbaPacotesTabela
             
             break
         default:
