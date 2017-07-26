@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		40D7A9009F110369DB3760FA /* Pods_HptMobileIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CC94319D7F24AE6590B8AA /* Pods_HptMobileIOS.framework */; };
 		5B07CD6A1F26205900877676 /* CelulaPadraoSimples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B07CD691F26205900877676 /* CelulaPadraoSimples.swift */; };
+		5B38AA1B1F27848700ACE4C3 /* DetalhesDia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38AA1A1F27848700ACE4C3 /* DetalhesDia.swift */; };
 		5B60DFE51F057BD200E7DF16 /* AbaContatos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B60DFE41F057BD200E7DF16 /* AbaContatos.swift */; };
 		5B60DFE71F057DB500E7DF16 /* AbaContatosAdicionar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B60DFE61F057DB500E7DF16 /* AbaContatosAdicionar.swift */; };
 		5B6D217D1EFBEDA90068B413 /* ConexaoWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6D217C1EFBEDA90068B413 /* ConexaoWebService.swift */; };
@@ -59,6 +60,7 @@
 		22029B8E69934239CBF95D5A /* Pods-HptMobileIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HptMobileIOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HptMobileIOSTests/Pods-HptMobileIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		587C0F984CC4907D2CD21E4F /* Pods-HptMobileIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HptMobileIOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HptMobileIOSUITests/Pods-HptMobileIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5B07CD691F26205900877676 /* CelulaPadraoSimples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelulaPadraoSimples.swift; sourceTree = "<group>"; };
+		5B38AA1A1F27848700ACE4C3 /* DetalhesDia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalhesDia.swift; sourceTree = "<group>"; };
 		5B5587121EF952D10001CF3A /* HptMobileIOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HptMobileIOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		5B60DFE41F057BD200E7DF16 /* AbaContatos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbaContatos.swift; sourceTree = "<group>"; };
 		5B60DFE61F057DB500E7DF16 /* AbaContatosAdicionar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbaContatosAdicionar.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				5BB89C881F1666AC008A7ABB /* CalendarioFooter.swift */,
 				5BB89C8A1F18F1D1008A7ABB /* CelulaDiaCalendario.swift */,
 				5BB89C8C1F190C83008A7ABB /* DetalhesEvento.swift */,
+				5B38AA1A1F27848700ACE4C3 /* DetalhesDia.swift */,
 			);
 			name = AbaAgenda;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 				5B92F2611F0589D20094A96B /* AbaPacotesDescricao.swift in Sources */,
 				5B60DFE51F057BD200E7DF16 /* AbaContatos.swift in Sources */,
 				5B821CF61F02E60900356098 /* AbaGeral.swift in Sources */,
+				5B38AA1B1F27848700ACE4C3 /* DetalhesDia.swift in Sources */,
 				5BB89C8D1F190C83008A7ABB /* DetalhesEvento.swift in Sources */,
 				5B07CD6A1F26205900877676 /* CelulaPadraoSimples.swift in Sources */,
 				5BFD609C1F0D6602001D9C66 /* AbaContatosChat.swift in Sources */,
@@ -753,6 +757,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A63B588B600544BBAD1BD42D /* Pods-HptMobileIOS.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -774,6 +779,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B6B8191AFF20B396D9A51A8B /* Pods-HptMobileIOS.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

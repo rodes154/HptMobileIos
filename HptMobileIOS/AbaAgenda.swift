@@ -58,6 +58,8 @@ class AbaAgenda: ViewController, UICollectionViewDataSource, UICollectionViewDel
         if(segue.identifier == "diaSelecionado"){
             let diaView = segue.destination as? DiaSelecionado
             diaView?.dia = selecaoAtt
+            diaView?.largura = view.frame.width
+            diaView?.altura = view.frame.height
         }
     }
     

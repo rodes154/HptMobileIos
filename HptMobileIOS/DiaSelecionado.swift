@@ -9,76 +9,70 @@
 import Foundation
 import UIKit
 
-class DiaSelecionado: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class DiaSelecionado: UIViewController, UITableViewDelegate{
     
-    @IBOutlet weak var diaSelecionadoView: UIView!
-    @IBOutlet weak var diaLabel: UILabel!
     @IBOutlet var detalhesEventoView: DetalhesEvento!
-    @IBOutlet weak var descricaoTableView: UITableView!
+    @IBOutlet var detalhesDiaView: DetalhesDia!
     
     
+    
+    public var largura: CGFloat = 0
+    public var altura: CGFloat = 0
     public var dia: Int = 0
-    private var nomes: Array<String> = []
+    private var eventosArray: Array<Array<String>> = []
+    
     
     override func viewDidLoad() {
         
-        diaSelecionadoView.layer.cornerRadius = 10
-        //carregarNomes()
-        alterarDia(dia: dia)
+        self.view.frame = CGRect(x: 0, y: 0, width: largura, height: altura)
+        carregarEventos()
     }
     
-    public func alterarDia(dia: Int){
-        self.diaLabel.text = "Dia \(dia)"
-    }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-        //return nomes.count
-    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        construirDetalhesView(nomeTarefa: "Nome tarefa")
+        construirDetalhesView(informacoes: eventosArray[indexPath.row])
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "celulaDiaSelecionado", for: indexPath) as! CelulaDiaCalendario
-        
-        //cell.descricaoLabel.text = nomes[indexPath.row]
-        cell.horarioInicioLabel.text = String(indexPath.row)
-        cell.horarioFinalLabel.text = String(indexPath.row)
-        
-        
-        return cell
-        
-    }
-    
-    private func carregarNomes(){
+    private func carregarEventos(){
         
         let conn = ConexaoWebService()
-        conn.realizarConexao(funcao: "consultarPessoa", metodo: "GET") { (objeto) in
+        conn.realizarConexao(funcao: "consultarEventos", metodo: "GET") { (objeto) in
             
             DispatchQueue.main.async(execute: {
                 
-                print("recebido")
-                self.nomes = objeto[String(1)] as! Array<String>
-                print(self.nomes.count)
-                self.descricaoTableView.reloadData()
-                
-                
+                for i in 0...objeto.count-1{
+                    self.eventosArray.append(objeto[String(i)] as! Array<String>)
+                }
+                self.construirDetalhesDia()
             })
         }
     }
     
-    private func construirDetalhesView(nomeTarefa: String){
+    private func construirDetalhesView(informacoes: Array<String>){
         detalhesEventoView.center = self.view.center
         detalhesEventoView.layer.cornerRadius = 10
         detalhesEventoView.alpha = 0
         detalhesEventoView.definirTamanho(largura: view.frame.width, altura: view.frame.height)
         detalhesEventoView.tarefasTableView.selectRow(at: [0,0], animated: true, scrollPosition: .top)
+        detalhesEventoView.informacoes(data: informacoes)
         self.view.addSubview(detalhesEventoView)
         UIView.animate(withDuration: 0.3) {
             self.detalhesEventoView.alpha = 1
+        }
+        
+    }
+    private func construirDetalhesDia(){
+        
+        detalhesDiaView.center = self.view.center
+        detalhesDiaView.layer.cornerRadius = 10
+        detalhesDiaView.alpha = 0
+        detalhesDiaView.dia(diaNumero: dia)
+        detalhesDiaView.eventos(eventos: eventosArray)
+        detalhesDiaView.definirTamanho(largura: view.frame.width, altura: view.frame.height)
+        self.view.addSubview(detalhesDiaView)
+        UIView.animate(withDuration: 0.3) { 
+            self.detalhesDiaView.alpha = 1
         }
         
     }

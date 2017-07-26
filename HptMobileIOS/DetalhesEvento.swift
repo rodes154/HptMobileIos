@@ -17,7 +17,11 @@ class DetalhesEvento: UIView, UITableViewDataSource, UITableViewDelegate{
     @IBOutlet weak var canceladoButton: UIButton!
     @IBOutlet weak var comentarioButton: UIButton!
     @IBOutlet weak var tarefasTableView: UITableView!
+    @IBOutlet weak var linhaInferiorLabel: UILabel!
     
+    @IBOutlet weak var localLabel: UILabel!
+    @IBOutlet weak var horarioLabel: UILabel!
+    @IBOutlet weak var tituloLabel: UILabel!
     
     
     
@@ -32,7 +36,7 @@ class DetalhesEvento: UIView, UITableViewDataSource, UITableViewDelegate{
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 10
     }
     
     
@@ -78,15 +82,11 @@ class DetalhesEvento: UIView, UITableViewDataSource, UITableViewDelegate{
         b1.isSelected = false
         b2.isSelected = false
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public func informacoes(data: Array<String>){
+        localLabel.text = data[3]
+        horarioLabel.text = "\(data[1]) - \(data[2])"
+        tituloLabel.text = data[0]
+    } 
     
     @IBAction func concluidoClicked(_ sender: Any) {
         UIView.animate(withDuration: 0.4, animations: { 
