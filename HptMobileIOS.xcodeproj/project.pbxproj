@@ -35,6 +35,7 @@
 		5BB89C8D1F190C83008A7ABB /* DetalhesEvento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB89C8C1F190C83008A7ABB /* DetalhesEvento.swift */; };
 		5BFD609C1F0D6602001D9C66 /* AbaContatosChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFD609B1F0D6602001D9C66 /* AbaContatosChat.swift */; };
 		5BFD609E1F0D6EC7001D9C66 /* CelulaChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFD609D1F0D6EC7001D9C66 /* CelulaChat.swift */; };
+		A914E91D1F294A4C00C7B6F5 /* InfoGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A914E91C1F294A4C00C7B6F5 /* InfoGlobal.swift */; };
 		A928207B1F281B6D00958B1D /* ComentariosTarefa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A928207A1F281B6D00958B1D /* ComentariosTarefa.swift */; };
 		A9BE31511F28D458002E476F /* Credenciais.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE31501F28D458002E476F /* Credenciais.swift */; };
 		A9BE31531F28DD55002E476F /* NovoEvento.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE31521F28DD55002E476F /* NovoEvento.swift */; };
@@ -99,6 +100,7 @@
 		9ECFCA1E42A8C6F7329DBFEB /* Pods_HptMobileIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HptMobileIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A63B588B600544BBAD1BD42D /* Pods-HptMobileIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HptMobileIOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HptMobileIOS/Pods-HptMobileIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		A81407A5F0CF8A61860388CF /* Pods_HptMobileIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HptMobileIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A914E91C1F294A4C00C7B6F5 /* InfoGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoGlobal.swift; sourceTree = "<group>"; };
 		A928207A1F281B6D00958B1D /* ComentariosTarefa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComentariosTarefa.swift; sourceTree = "<group>"; };
 		A9BE31501F28D458002E476F /* Credenciais.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credenciais.swift; sourceTree = "<group>"; };
 		A9BE31521F28DD55002E476F /* NovoEvento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovoEvento.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 		5B7ABF961EE87AE1007D7616 /* HptMobileIOS */ = {
 			isa = PBXGroup;
 			children = (
+				A914E91B1F294A2E00C7B6F5 /* Classes Globais */,
 				5B821CF01F019E9700356098 /* Libraries */,
 				5B6D218A1F0199800068B413 /* ConexaoWebService */,
 				5B6D21891F0199650068B413 /* HomeViewController */,
@@ -306,6 +309,14 @@
 				A9BE31521F28DD55002E476F /* NovoEvento.swift */,
 			);
 			name = AbaAgenda;
+			sourceTree = "<group>";
+		};
+		A914E91B1F294A2E00C7B6F5 /* Classes Globais */ = {
+			isa = PBXGroup;
+			children = (
+				A914E91C1F294A4C00C7B6F5 /* InfoGlobal.swift */,
+			);
+			name = "Classes Globais";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -595,6 +606,7 @@
 				5B821CF21F02CFF900356098 /* AbaPacotesTabela.swift in Sources */,
 				5BFD609E1F0D6EC7001D9C66 /* CelulaChat.swift in Sources */,
 				5B92F2691F059E450094A96B /* CelulaVazia.swift in Sources */,
+				A914E91D1F294A4C00C7B6F5 /* InfoGlobal.swift in Sources */,
 				5BB89C8B1F18F1D1008A7ABB /* CelulaDiaCalendario.swift in Sources */,
 				5B7ABF9A1EE87AE1007D7616 /* ViewController.swift in Sources */,
 				5BB89C871F1652F8008A7ABB /* CalendarioHeader.swift in Sources */,

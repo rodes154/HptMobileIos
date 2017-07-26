@@ -9,12 +9,15 @@
 import Foundation
 import UIKit
 
-class NovoEvento: UIViewController{
+class NovoEvento: UIViewController, UIScrollViewDelegate{
+    
+    @IBOutlet weak var mainScrollView: UIScrollView!
     
     override func viewDidLoad() {
+        
         title = "Novo Evento"
+        
     }
-    
     @IBAction func cancelarButton(_ sender: Any) {
         dismiss(animated: true) { 
             

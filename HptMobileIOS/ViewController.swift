@@ -31,6 +31,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
         return false
     }
+    
 
     @IBAction func buttonPressed(_ sender: Any) {
         
@@ -49,6 +50,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
                         
                         Credenciais.setSessao(param: tempDict["sessao"])
                         Credenciais.setAcesso(param: Int(tempDict["acesso"]!)!)
+                        InfoGlobal.setWidth(width: self.view.frame.width)
+                        InfoGlobal.setHeight(height: self.view.frame.height)
                         self.performSegue(withIdentifier: "showTabController", sender: nil)
                         
                     } else{
