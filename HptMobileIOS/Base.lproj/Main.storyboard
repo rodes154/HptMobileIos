@@ -330,6 +330,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="comentariosView" destination="bQf-Xd-aXv" id="mEI-YL-yD8"/>
                         <outlet property="detalhesDiaView" destination="XiF-R7-wX6" id="m1u-yR-vdT"/>
                         <outlet property="detalhesEventoView" destination="wue-Iv-sXe" id="V8d-ui-f4m"/>
                     </connections>
@@ -495,6 +496,7 @@
                             </constraints>
                             <state key="normal" image="comentarioIcon"/>
                             <connections>
+                                <action selector="comentarioButton:" destination="Nwb-6k-s3I" eventType="touchUpInside" id="XD5-ku-ZGO"/>
                                 <action selector="tarefaComentarioClicked:" destination="wue-Iv-sXe" eventType="touchUpInside" id="UPZ-Im-v2Y"/>
                             </connections>
                         </button>
@@ -679,42 +681,56 @@
                         <outlet property="diaLabel" destination="BQC-4V-T2c" id="rn3-uS-1lN"/>
                     </connections>
                 </view>
-                <view contentMode="scaleToFill" id="bQf-Xd-aXv">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="179"/>
+                <view clipsSubviews="YES" contentMode="scaleToFill" id="bQf-Xd-aXv" customClass="ComentariosTarefa" customModule="HptMobileIOS" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="239" height="215"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="79E-9K-smX">
-                            <rect key="frame" x="0.0" y="149" width="240" height="30"/>
+                            <rect key="frame" x="0.0" y="165" width="239" height="50"/>
                             <color key="backgroundColor" red="0.48984771573604058" green="0.48984771573604058" blue="0.48984771573604058" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="30" id="irJ-NW-zsV"/>
+                                <constraint firstAttribute="height" constant="50" id="irJ-NW-zsV"/>
                             </constraints>
                             <state key="normal" title="Salvar observação"/>
+                            <connections>
+                                <action selector="salvarButton:" destination="bQf-Xd-aXv" eventType="touchUpInside" id="LBb-aD-KxK"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Observações:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikJ-2p-1UM">
-                            <rect key="frame" x="73.5" y="2" width="94.5" height="18"/>
+                            <rect key="frame" x="72.5" y="5" width="94.5" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4EK-x8-Cs5">
-                            <rect key="frame" x="0.0" y="20" width="240" height="124"/>
+                            <rect key="frame" x="16" y="28" width="207" height="99"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGF-9K-DyV">
+                            <rect key="frame" x="198" y="135" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="4cI-zo-NR7"/>
+                                <constraint firstAttribute="height" constant="25" id="LwU-Wv-6oS"/>
+                            </constraints>
+                            <state key="normal" title="Button" image="prioridadeIcon"/>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="ikJ-2p-1UM" firstAttribute="centerX" secondItem="bQf-Xd-aXv" secondAttribute="centerX" id="1zz-Ae-A0J"/>
-                        <constraint firstItem="4EK-x8-Cs5" firstAttribute="top" secondItem="bQf-Xd-aXv" secondAttribute="top" constant="20" id="4M3-N2-K0y"/>
-                        <constraint firstItem="79E-9K-smX" firstAttribute="top" secondItem="4EK-x8-Cs5" secondAttribute="bottom" constant="5" id="Sa3-r6-LO8"/>
+                        <constraint firstAttribute="trailing" secondItem="yGF-9K-DyV" secondAttribute="trailing" constant="16" id="7A6-TD-iWG"/>
+                        <constraint firstAttribute="trailing" secondItem="4EK-x8-Cs5" secondAttribute="trailing" constant="16" id="90c-fj-zVL"/>
+                        <constraint firstItem="4EK-x8-Cs5" firstAttribute="leading" secondItem="bQf-Xd-aXv" secondAttribute="leading" constant="16" id="FGr-k2-Bqc"/>
+                        <constraint firstItem="ikJ-2p-1UM" firstAttribute="top" secondItem="bQf-Xd-aXv" secondAttribute="top" constant="5" id="Hf9-dD-3su"/>
+                        <constraint firstItem="79E-9K-smX" firstAttribute="top" secondItem="yGF-9K-DyV" secondAttribute="bottom" constant="5" id="K21-7H-KXx"/>
+                        <constraint firstItem="4EK-x8-Cs5" firstAttribute="top" secondItem="ikJ-2p-1UM" secondAttribute="bottom" constant="5" id="MKO-Fe-b0N"/>
+                        <constraint firstItem="4EK-x8-Cs5" firstAttribute="centerX" secondItem="bQf-Xd-aXv" secondAttribute="centerX" id="ULz-Jd-d1c"/>
+                        <constraint firstItem="yGF-9K-DyV" firstAttribute="top" secondItem="4EK-x8-Cs5" secondAttribute="bottom" constant="8" id="Y2e-iO-iPZ"/>
                         <constraint firstAttribute="bottom" secondItem="79E-9K-smX" secondAttribute="bottom" id="aDh-cf-har"/>
-                        <constraint firstAttribute="trailing" secondItem="4EK-x8-Cs5" secondAttribute="trailing" id="e26-md-jpU"/>
-                        <constraint firstItem="4EK-x8-Cs5" firstAttribute="leading" secondItem="bQf-Xd-aXv" secondAttribute="leading" id="kGt-hz-Jq7"/>
                         <constraint firstAttribute="trailing" secondItem="79E-9K-smX" secondAttribute="trailing" id="nYK-F6-Vib"/>
                         <constraint firstItem="79E-9K-smX" firstAttribute="leading" secondItem="bQf-Xd-aXv" secondAttribute="leading" id="p5Y-KY-RJR"/>
-                        <constraint firstItem="4EK-x8-Cs5" firstAttribute="top" secondItem="ikJ-2p-1UM" secondAttribute="bottom" id="v7T-1x-se9"/>
                     </constraints>
                 </view>
             </objects>

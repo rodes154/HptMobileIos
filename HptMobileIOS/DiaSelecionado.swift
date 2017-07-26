@@ -13,7 +13,7 @@ class DiaSelecionado: UIViewController, UITableViewDelegate{
     
     @IBOutlet var detalhesEventoView: DetalhesEvento!
     @IBOutlet var detalhesDiaView: DetalhesDia!
-    
+    @IBOutlet var comentariosView: ComentariosTarefa!
     
     
     public var largura: CGFloat = 0
@@ -76,8 +76,23 @@ class DiaSelecionado: UIViewController, UITableViewDelegate{
         }
         
     }
+    private func construirComentario(){
+        comentariosView.center = self.view.center
+        comentariosView.layer.cornerRadius = 10
+        comentariosView.alpha = 0
+        comentariosView.definirTamanho(largura: view.frame.width, altura: view.frame.height)
+        self.view.addSubview(comentariosView)
+        UIView.animate(withDuration: 0.3) { 
+            self.comentariosView.alpha = 1
+        }
+        
+    }
     
     @IBAction func voltarButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    @IBAction func comentarioButton(_ sender: Any) {
+        construirComentario()
+        
     }
 }
