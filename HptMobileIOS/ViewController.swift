@@ -35,6 +35,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func buttonPressed(_ sender: Any) {
         
+        Credenciais.setAcesso(param: 1)
+        self.performSegue(withIdentifier: "showTabController", sender: nil)
         
         let conn = ConexaoWebService()
         conn.inserirParametro(paramKey: "param1", paramValue: loginTextField.text!)
