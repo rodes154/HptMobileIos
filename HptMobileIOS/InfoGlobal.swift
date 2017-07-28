@@ -13,6 +13,7 @@ class InfoGlobal {
     
     private static var appWidth: CGFloat = 0
     private static var appHeight: CGFloat = 0
+    private static var dataAtual = Date()
     
     public static func setWidth(width: CGFloat){
         appWidth = width

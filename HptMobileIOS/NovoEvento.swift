@@ -13,11 +13,18 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var mainNavigationBar: UINavigationBar!
-    @IBOutlet weak var localPickerView: UIPickerView!
-    @IBOutlet weak var responsavelPickerView: UIPickerView!
+    
     @IBOutlet var pesquisarLocalView: PesquisarLocalNovoEvento!
+    
     @IBOutlet weak var efeitoImageView: UIImageView!
     @IBOutlet weak var topoView: UIView!
+    
+    @IBOutlet weak var localPickerView: UIPickerView!
+    @IBOutlet weak var responsavelPickerView: UIPickerView!
+    
+    
+    private var locais: Array<String> = []
+    private var responsaveis: Array<String> = []
     
     override func viewDidLoad() {
         bordas()
@@ -26,23 +33,46 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     }
     
     private func bordas(){
-        localPickerView.layer.borderWidth = 0.3
-        localPickerView.layer.cornerRadius = 5
-        localPickerView.layer.borderColor = UIColor.lightGray.cgColor
-        
-        responsavelPickerView.layer.borderWidth = 0.3
-        responsavelPickerView.layer.cornerRadius = 5
-        responsavelPickerView.layer.borderColor = UIColor.lightGray.cgColor
         
         topoView.layer.cornerRadius = 10
         
+        
+        
+        bordasPickerView(picker: localPickerView)
+        bordasPickerView(picker: responsavelPickerView)
+        
+    }
+    private func bordasPickerView(picker: UIPickerView){
+        picker.layer.borderWidth = 0.3
+        picker.layer.cornerRadius = 5
+        picker.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 10
+        
+        switch pickerView {
+            
+        case localPickerView:
+            return locais.count
+            
+        case responsavelPickerView:
+            return responsaveis.count
+        
+        default:
+            return 1
+        }
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        switch pickerView {
+        
+        default:
+            return 1
+        }
+        
+    }
+    
+    private func dataButtonClick(){
+        performSegue(withIdentifier: "selecionarData", sender: self)
     }
     
     @IBAction func pesquisarLocalButton(_ sender: Any) {
@@ -54,6 +84,10 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     }
     
     
+    @IBAction func pesquisarResponsavelButton(_ sender: Any) {
+        dataButtonClick()
+    }
+    
     @IBAction func cancelarEventoButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -64,6 +98,7 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         }) { (finished) in
             self.pesquisarLocalView.removeFromSuperview()
             self.view.bringSubview(toFront: self.mainScrollView)
+            self.view.bringSubview(toFront: self.mainNavigationBar)
         }
     }
 }
