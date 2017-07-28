@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
+class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, retornarDataDelegate{
     
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var mainNavigationBar: UINavigationBar!
@@ -22,6 +22,10 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     @IBOutlet weak var localPickerView: UIPickerView!
     @IBOutlet weak var responsavelPickerView: UIPickerView!
     
+    @IBOutlet weak var inicioButton: UIButton!
+    @IBOutlet weak var finalButton: UIButton!
+    
+    var formatter = DateFormatter()
     
     private var locais: Array<String> = []
     private var responsaveis: Array<String> = []
@@ -29,6 +33,9 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     override func viewDidLoad() {
         bordas()
         view.frame.size.width = InfoGlobal.getWidth()
+        
+        inicioButton.setTitle(InfoGlobal.getDataAtual(tipo: "completa"), for: .normal)
+        finalButton.setTitle(InfoGlobal.getDataAtual(tipo: "completa"), for: .normal)
         
     }
     
@@ -46,6 +53,16 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         picker.layer.borderWidth = 0.3
         picker.layer.cornerRadius = 5
         picker.layer.borderColor = UIColor.lightGray.cgColor
+    }
+    
+    func retornarData(dataSelecionada: String) {
+        inicioButton.setTitle(dataSelecionada, for: .normal)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier=="selecionarData"){
+            let dataVC = segue.destination as? CalendarioDataHora
+            dataVC?.dataDelegate = self
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -71,10 +88,6 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         
     }
     
-    private func dataButtonClick(){
-        performSegue(withIdentifier: "selecionarData", sender: self)
-    }
-    
     @IBAction func pesquisarLocalButton(_ sender: Any) {
         view.bringSubview(toFront: efeitoImageView)
         pesquisarLocalView.center = view.center
@@ -83,9 +96,15 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         
     }
     
+    @IBAction func inicioButtonClick(_ sender: Any) {
+        
+        prepare(for: UIStoryboardSegue.init(identifier: "selecionarData", source: self, destination: self), sender: nil)
+        performSegue(withIdentifier: "selecionarData", sender: self)
+        
+    }
     
     @IBAction func pesquisarResponsavelButton(_ sender: Any) {
-        dataButtonClick()
+        
     }
     
     @IBAction func cancelarEventoButton(_ sender: Any) {
