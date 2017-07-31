@@ -26,6 +26,9 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     @IBOutlet weak var finalButton: UIButton!
     
     var formatter = DateFormatter()
+    var dataInicio = Date()
+    var dataFinal = Date()
+    var dataButton: Int = 0
     
     private var locais: Array<String> = []
     private var responsaveis: Array<String> = []
@@ -55,8 +58,22 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         picker.layer.borderColor = UIColor.lightGray.cgColor
     }
     
-    func retornarData(dataSelecionada: String) {
-        inicioButton.setTitle(dataSelecionada, for: .normal)
+    func retornarData(dataSelecionada: Date) {
+        if(dataButton==1){
+            dataInicio = dataSelecionada
+            formatter.dateFormat = "E, d MMM yyyy"
+            inicioButton.setTitle(formatter.string(from: dataSelecionada), for: .normal)
+            formatter.dateFormat = "HH:mm"
+            inicioButton.setTitle("\(inicioButton.currentTitle ?? String())     \(formatter.string(from: dataSelecionada))", for: .normal)
+        }
+        if(dataButton==2){
+            dataFinal = dataSelecionada
+            formatter.dateFormat = "E, d MMM yyyy"
+            finalButton.setTitle(formatter.string(from: dataSelecionada), for: .normal)
+            formatter.dateFormat = "HH:mm"
+            finalButton.setTitle("\(finalButton.currentTitle ?? String())     \(formatter.string(from: dataSelecionada))", for: .normal)
+        }
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier=="selecionarData"){
@@ -98,9 +115,16 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     
     @IBAction func inicioButtonClick(_ sender: Any) {
         
+        dataButton = 1
         prepare(for: UIStoryboardSegue.init(identifier: "selecionarData", source: self, destination: self), sender: nil)
         performSegue(withIdentifier: "selecionarData", sender: self)
         
+    }
+    @IBAction func finalButtonClick(_ sender: Any) {
+        
+        dataButton = 2
+        prepare(for: UIStoryboardSegue.init(identifier: "selecionarData", source: self, destination: self), sender: nil)
+        performSegue(withIdentifier: "selecionarData", sender: self)
     }
     
     @IBAction func pesquisarResponsavelButton(_ sender: Any) {

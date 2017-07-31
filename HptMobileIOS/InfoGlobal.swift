@@ -13,7 +13,6 @@ class InfoGlobal {
     
     private static var appWidth: CGFloat = 0
     private static var appHeight: CGFloat = 0
-    private static var dataAtual = Date()
     
     private static var formatter = DateFormatter()
     
@@ -30,6 +29,10 @@ class InfoGlobal {
         return appHeight
     }
     public static func getDataAtual(tipo: String) -> String{
+        
+        
+        let dataAtual = Date()
+        
         switch tipo {
         case "simples":
             formatter.dateFormat = "dd/MM/yyyy"
@@ -42,7 +45,10 @@ class InfoGlobal {
         case "extensaHora":
             formatter.dateFormat = "EEEE, d MMMM, yyyy HH:mm:ss"
             
-            
+        case "hora24":
+            formatter.dateFormat = "HH"
+        case "minuto":
+            formatter.dateFormat = "mm"
         case "dia":
             formatter.dateFormat = "dd"
         case "mes":
