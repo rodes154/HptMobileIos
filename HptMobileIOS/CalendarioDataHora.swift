@@ -18,6 +18,7 @@ class CalendarioDataHora: UIViewController, UICollectionViewDelegateFlowLayout, 
     @IBOutlet weak var selecionarButton: UIButton!
     @IBOutlet weak var cancelarButton: UIButton!
     @IBOutlet weak var dataSelecionadaLabel: UILabel!
+    @IBOutlet weak var mesAnoLabel: UILabel!
     
     @IBOutlet weak var horaView: UIView!
     @IBOutlet weak var subView: UIView!
@@ -42,21 +43,16 @@ class CalendarioDataHora: UIViewController, UICollectionViewDelegateFlowLayout, 
     var indiceDiaInicioMes: Int = 0
     let diasNoMes: Array<Int> = [31,28,31,30,31,30,31,31,30,31,30,31]
     
-    var indiceDia: String = ""
-    var indiceMes: String = ""
-    var indiceAno: Int = 2017
-    var indiceHora: String = ""
+    public var indiceDia: String = ""
+    public var indiceMes: String = ""
+    public var indiceAno: Int = 2017
+    public var indiceHora: String = ""
     var indiceMinuto: String = "00"
     
     
     
     
     override func viewDidLoad() {
-        
-        indiceHora = InfoGlobal.getDataAtual(tipo: "hora24")
-        indiceDia = InfoGlobal.getDataAtual(tipo: "dia")
-        indiceMes = InfoGlobal.getDataAtual(tipo: "mes")
-        indiceAno = Int(InfoGlobal.getDataAtual(tipo: "ano"))!
         
         
         atualizarIndiceDiaInicioMes()
@@ -68,6 +64,7 @@ class CalendarioDataHora: UIViewController, UICollectionViewDelegateFlowLayout, 
         subView.layer.cornerRadius = 10
         
         atualizarLabelInferior()
+        atualizarLabelSuperior()
         
     }
     
@@ -85,6 +82,8 @@ class CalendarioDataHora: UIViewController, UICollectionViewDelegateFlowLayout, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaCalendario", for: indexPath) as! CelulaVazia
+        cell.eventoImageView.isHidden = true
+        
         
         if(indexPath.row<indiceDiaInicioMes){
             cell.diaLabel.isHidden = true
@@ -103,6 +102,8 @@ class CalendarioDataHora: UIViewController, UICollectionViewDelegateFlowLayout, 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if(indexPath.row<indiceDiaInicioMes){
+            collectionView.deselectItem(at: indexPath, animated: false)
+            collectionView.selectItem(at: celulaSelecionada, animated: false, scrollPosition: .centeredVertically)
             
         }else{
             collectionView.deselectItem(at: celulaSelecionada, animated: true)
@@ -156,7 +157,7 @@ class CalendarioDataHora: UIViewController, UICollectionViewDelegateFlowLayout, 
         case minutosPickerView:
             return String(number)
         default:
-            return "a"
+            return ""
         }
         
     }
@@ -183,6 +184,10 @@ class CalendarioDataHora: UIViewController, UICollectionViewDelegateFlowLayout, 
             })
         }
     }
+    private func atualizarLabelSuperior(){
+        mesAnoLabel.text = "\((formatter.shortMonthSymbols[Int(indiceMes)!-1]).capitalized) de \(indiceAno)"
+        
+    }
     
     @IBAction func selecionarButtonClicked(_ sender: Any) {
         formatter.dateFormat = "dd/MM/yyyy HH:mm"
@@ -196,8 +201,6 @@ class CalendarioDataHora: UIViewController, UICollectionViewDelegateFlowLayout, 
     }
     
     @IBAction func proximoMesButton(_ sender: Any) {
-
-        
         
         if(indiceMes=="12"){
             indiceMes="01"
@@ -213,19 +216,30 @@ class CalendarioDataHora: UIViewController, UICollectionViewDelegateFlowLayout, 
         calendarioViewCollection.deselectItem(at: celulaSelecionada, animated: true)
         atualizarIndiceDiaInicioMes()
         calendarioViewCollection.reloadData()
+        atualizarLabelSuperior()
         atualizarLabelInferior()
         
     }
     
     @IBAction func anteriorMesButton(_ sender: Any) {
         
+        if(indiceMes=="01"){
+            indiceMes="12"
+            indiceAno=indiceAno-1
+        }else{
+            if(Int(indiceMes)!<11){
+                indiceMes = "0\(Int(indiceMes)!-1)"
+            }else{
+                indiceMes = String(Int(indiceMes)!-1)
+            }
+
+        }
+        calendarioViewCollection.deselectItem(at: celulaSelecionada, animated: true)
+        atualizarIndiceDiaInicioMes()
+        calendarioViewCollection.reloadData()
+        atualizarLabelSuperior()
+        atualizarLabelInferior()
         
     }
-    
-    
-    
-    
-    
-    
     
 }

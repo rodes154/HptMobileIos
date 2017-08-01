@@ -37,6 +37,7 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         bordas()
         view.frame.size.width = InfoGlobal.getWidth()
         
+        
         inicioButton.setTitle(InfoGlobal.getDataAtual(tipo: "completa"), for: .normal)
         finalButton.setTitle(InfoGlobal.getDataAtual(tipo: "completa"), for: .normal)
         
@@ -62,14 +63,14 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         if(dataButton==1){
             dataInicio = dataSelecionada
             formatter.dateFormat = "E, d MMM yyyy"
-            inicioButton.setTitle(formatter.string(from: dataSelecionada), for: .normal)
+            inicioButton.setTitle(formatter.string(from: dataSelecionada).capitalized, for: .normal)
             formatter.dateFormat = "HH:mm"
             inicioButton.setTitle("\(inicioButton.currentTitle ?? String())     \(formatter.string(from: dataSelecionada))", for: .normal)
         }
         if(dataButton==2){
             dataFinal = dataSelecionada
             formatter.dateFormat = "E, d MMM yyyy"
-            finalButton.setTitle(formatter.string(from: dataSelecionada), for: .normal)
+            finalButton.setTitle(formatter.string(from: dataSelecionada).capitalized, for: .normal)
             formatter.dateFormat = "HH:mm"
             finalButton.setTitle("\(finalButton.currentTitle ?? String())     \(formatter.string(from: dataSelecionada))", for: .normal)
         }
@@ -79,6 +80,10 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         if(segue.identifier=="selecionarData"){
             let dataVC = segue.destination as? CalendarioDataHora
             dataVC?.dataDelegate = self
+            dataVC?.indiceHora = InfoGlobal.getDataAtual(tipo: "hora24")
+            dataVC?.indiceDia = InfoGlobal.getDataAtual(tipo: "dia")
+            dataVC?.indiceMes = InfoGlobal.getDataAtual(tipo: "mes")
+            dataVC?.indiceAno = Int(InfoGlobal.getDataAtual(tipo: "ano"))!
         }
     }
     
@@ -129,7 +134,16 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     
     @IBAction func pesquisarResponsavelButton(_ sender: Any) {
         
+        
+        
     }
+    
+    @IBAction func novaTarefaButton(_ sender: Any) {
+        
+        performSegue(withIdentifier: "novaTarefa", sender: self)
+        
+    }
+    
     
     @IBAction func cancelarEventoButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
