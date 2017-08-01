@@ -39,6 +39,7 @@
 		5BFD609E1F0D6EC7001D9C66 /* CelulaChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFD609D1F0D6EC7001D9C66 /* CelulaChat.swift */; };
 		A914E91D1F294A4C00C7B6F5 /* InfoGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A914E91C1F294A4C00C7B6F5 /* InfoGlobal.swift */; };
 		A928207B1F281B6D00958B1D /* ComentariosTarefa.swift in Sources */ = {isa = PBXBuildFile; fileRef = A928207A1F281B6D00958B1D /* ComentariosTarefa.swift */; };
+		A9573FD21F314200000D1D09 /* ConfirmarAcao.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9573FD11F314200000D1D09 /* ConfirmarAcao.swift */; };
 		A95B682E1F2AC3D600130696 /* CalendarioDataHora.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95B682D1F2AC3D600130696 /* CalendarioDataHora.swift */; };
 		A9BE31511F28D458002E476F /* Credenciais.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE31501F28D458002E476F /* Credenciais.swift */; };
 		A9BE31531F28DD55002E476F /* NovoEvento.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE31521F28DD55002E476F /* NovoEvento.swift */; };
@@ -107,6 +108,7 @@
 		A81407A5F0CF8A61860388CF /* Pods_HptMobileIOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HptMobileIOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A914E91C1F294A4C00C7B6F5 /* InfoGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoGlobal.swift; sourceTree = "<group>"; };
 		A928207A1F281B6D00958B1D /* ComentariosTarefa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComentariosTarefa.swift; sourceTree = "<group>"; };
+		A9573FD11F314200000D1D09 /* ConfirmarAcao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmarAcao.swift; sourceTree = "<group>"; };
 		A95B682D1F2AC3D600130696 /* CalendarioDataHora.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarioDataHora.swift; sourceTree = "<group>"; };
 		A9BE31501F28D458002E476F /* Credenciais.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credenciais.swift; sourceTree = "<group>"; };
 		A9BE31521F28DD55002E476F /* NovoEvento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovoEvento.swift; sourceTree = "<group>"; };
@@ -188,8 +190,6 @@
 				5B821CF31F02DCAB00356098 /* AbaPacotes */,
 				5B8C27EA1F0ADFD400A35962 /* CelulaPadrao.swift */,
 				5B07CD691F26205900877676 /* CelulaPadraoSimples.swift */,
-				5BB432041F31111000FF11FE /* NovaTarefa.swift */,
-				A95B682D1F2AC3D600130696 /* CalendarioDataHora.swift */,
 			);
 			name = Abas;
 			sourceTree = "<group>";
@@ -236,6 +236,7 @@
 		5B7ABF961EE87AE1007D7616 /* HptMobileIOS */ = {
 			isa = PBXGroup;
 			children = (
+				A9573FD01F3141CA000D1D09 /* Módulos Reutilizaveis */,
 				A914E91B1F294A2E00C7B6F5 /* Classes Globais */,
 				5B821CF01F019E9700356098 /* Libraries */,
 				5B6D218A1F0199800068B413 /* ConexaoWebService */,
@@ -326,6 +327,16 @@
 				A914E91C1F294A4C00C7B6F5 /* InfoGlobal.swift */,
 			);
 			name = "Classes Globais";
+			sourceTree = "<group>";
+		};
+		A9573FD01F3141CA000D1D09 /* Módulos Reutilizaveis */ = {
+			isa = PBXGroup;
+			children = (
+				A95B682D1F2AC3D600130696 /* CalendarioDataHora.swift */,
+				A9573FD11F314200000D1D09 /* ConfirmarAcao.swift */,
+				5BB432041F31111000FF11FE /* NovaTarefa.swift */,
+			);
+			name = "Módulos Reutilizaveis";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -624,6 +635,7 @@
 				5B60DFE71F057DB500E7DF16 /* AbaContatosAdicionar.swift in Sources */,
 				5B7ABF981EE87AE1007D7616 /* AppDelegate.swift in Sources */,
 				A9BE31511F28D458002E476F /* Credenciais.swift in Sources */,
+				A9573FD21F314200000D1D09 /* ConfirmarAcao.swift in Sources */,
 				5B92F2611F0589D20094A96B /* AbaPacotesDescricao.swift in Sources */,
 				5B60DFE51F057BD200E7DF16 /* AbaContatos.swift in Sources */,
 				5B821CF61F02E60900356098 /* AbaGeral.swift in Sources */,

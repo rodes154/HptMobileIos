@@ -18,12 +18,15 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     
     @IBOutlet weak var efeitoImageView: UIImageView!
     @IBOutlet weak var topoView: UIView!
+    @IBOutlet weak var tarefasView: UIView!
     
     @IBOutlet weak var localPickerView: UIPickerView!
     @IBOutlet weak var responsavelPickerView: UIPickerView!
     
     @IBOutlet weak var inicioButton: UIButton!
     @IBOutlet weak var finalButton: UIButton!
+    
+    @IBOutlet weak var tarefasTableView: UITableView!
     
     var formatter = DateFormatter()
     var dataInicio = Date()
@@ -46,6 +49,11 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     private func bordas(){
         
         topoView.layer.cornerRadius = 10
+        tarefasView.layer.cornerRadius = 10
+        
+        tarefasTableView.layer.cornerRadius = 5
+        tarefasTableView.layer.borderWidth = 0.3
+        tarefasTableView.layer.borderColor = UIColor.lightGray.cgColor
         
         
         
