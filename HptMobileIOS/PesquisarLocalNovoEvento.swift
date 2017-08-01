@@ -15,10 +15,15 @@ class PesquisarLocalNovoEvento: UIView, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var resultadoTableView: UITableView!
     
     public func load(){
+        pesquisaTextField.layer.borderWidth = 1
+        pesquisaTextField.layer.borderColor = UIColor.gray.cgColor
+        pesquisaTextField.layer.cornerRadius = 7
+        
         alpha = 0
         UIView.animate(withDuration: 0.3) { 
             self.alpha = 1
         }
+        clipsToBounds = true
         layer.cornerRadius = 10
     }
     

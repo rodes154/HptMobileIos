@@ -547,6 +547,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <state key="normal" image="anteriorArrow"/>
+                                        <connections>
+                                            <action selector="anteriorMesButton:" destination="2Ng-cf-lt6" eventType="touchUpInside" id="nms-0S-qCZ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7eq-Pf-14X">
                                         <rect key="frame" x="202" y="12" width="15" height="15"/>
@@ -556,6 +559,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <state key="normal" image="proximoArrow"/>
+                                        <connections>
+                                            <action selector="proximoMesButton:" destination="2Ng-cf-lt6" eventType="touchUpInside" id="Wy5-wG-Pyz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmt-iJ-f4z">
                                         <rect key="frame" x="0.0" y="497" width="98" height="50"/>
@@ -867,7 +873,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="240" height="264"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FFp-Rc-O1B">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Filtro" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FFp-Rc-O1B">
                             <rect key="frame" x="16" y="37" width="208" height="30"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -882,7 +888,7 @@
                                     <rect key="frame" x="0.0" y="28" width="208" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oCs-Hd-OSf" id="a52-4M-Dy2">
-                                        <rect key="frame" x="0.0" y="0.0" width="208" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="208" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqi-8v-QIG">
