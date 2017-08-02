@@ -18,7 +18,7 @@ class DiaSelecionado: UIViewController, UITableViewDelegate{
     
     public var largura: CGFloat = 0
     public var altura: CGFloat = 0
-    public var dia: Int = 0
+    public var dia: String = ""
     private var eventosArray: Array<Array<String>> = []
     
     

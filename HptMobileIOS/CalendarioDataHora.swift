@@ -45,7 +45,7 @@ class CalendarioDataHora: UIViewController, UICollectionViewDelegateFlowLayout, 
     
     public var indiceDia: String = ""
     public var indiceMes: String = ""
-    public var indiceAno: Int = 2017
+    public var indiceAno: Int = 0
     public var indiceHora: String = ""
     var indiceMinuto: String = "00"
     
@@ -168,6 +168,7 @@ class CalendarioDataHora: UIViewController, UICollectionViewDelegateFlowLayout, 
     }
     
     func atualizarIndiceDiaInicioMes(){
+        
         formatter.dateFormat = "dd/MM/yyyy"
         let dataTemp = formatter.date(from: "01/\(indiceMes)/\(indiceAno)")
         formatter.dateFormat = "EEEE"

@@ -43,9 +43,9 @@ class DetalhesDia: UIView, UITableViewDataSource{
         eventosArray = eventos
         
     }
-    public func dia(diaNumero: Int){
+    public func dia(diaNumero: String){
         
-        
+        diaLabel.text = diaNumero
         
     }
     
