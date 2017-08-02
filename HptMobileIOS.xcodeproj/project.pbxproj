@@ -31,8 +31,6 @@
 		5B92F2691F059E450094A96B /* CelulaVazia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92F2681F059E450094A96B /* CelulaVazia.swift */; };
 		5B92F26B1F06EB5D0094A96B /* DiaSelecionado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92F26A1F06EB5D0094A96B /* DiaSelecionado.swift */; };
 		5BB432051F31111000FF11FE /* NovaTarefa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB432041F31111000FF11FE /* NovaTarefa.swift */; };
-		5BB89C871F1652F8008A7ABB /* CalendarioHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB89C861F1652F8008A7ABB /* CalendarioHeader.swift */; };
-		5BB89C891F1666AC008A7ABB /* CalendarioFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB89C881F1666AC008A7ABB /* CalendarioFooter.swift */; };
 		5BB89C8B1F18F1D1008A7ABB /* CelulaDiaCalendario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB89C8A1F18F1D1008A7ABB /* CelulaDiaCalendario.swift */; };
 		5BB89C8D1F190C83008A7ABB /* DetalhesEvento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB89C8C1F190C83008A7ABB /* DetalhesEvento.swift */; };
 		5BFD609C1F0D6602001D9C66 /* AbaContatosChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFD609B1F0D6602001D9C66 /* AbaContatosChat.swift */; };
@@ -97,8 +95,6 @@
 		5B92F2681F059E450094A96B /* CelulaVazia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelulaVazia.swift; sourceTree = "<group>"; };
 		5B92F26A1F06EB5D0094A96B /* DiaSelecionado.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaSelecionado.swift; sourceTree = "<group>"; };
 		5BB432041F31111000FF11FE /* NovaTarefa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovaTarefa.swift; sourceTree = "<group>"; };
-		5BB89C861F1652F8008A7ABB /* CalendarioHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarioHeader.swift; sourceTree = "<group>"; };
-		5BB89C881F1666AC008A7ABB /* CalendarioFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarioFooter.swift; sourceTree = "<group>"; };
 		5BB89C8A1F18F1D1008A7ABB /* CelulaDiaCalendario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelulaDiaCalendario.swift; sourceTree = "<group>"; };
 		5BB89C8C1F190C83008A7ABB /* DetalhesEvento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalhesEvento.swift; sourceTree = "<group>"; };
 		5BFD609B1F0D6602001D9C66 /* AbaContatosChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbaContatosChat.swift; sourceTree = "<group>"; };
@@ -188,8 +184,6 @@
 				5B92F2651F059A0B0094A96B /* AbaAgenda */,
 				5B60DFE31F057B9300E7DF16 /* AbaContatos */,
 				5B821CF31F02DCAB00356098 /* AbaPacotes */,
-				5B8C27EA1F0ADFD400A35962 /* CelulaPadrao.swift */,
-				5B07CD691F26205900877676 /* CelulaPadraoSimples.swift */,
 			);
 			name = Abas;
 			sourceTree = "<group>";
@@ -307,16 +301,9 @@
 			isa = PBXGroup;
 			children = (
 				5B92F2661F059A4A0094A96B /* AbaAgenda.swift */,
-				5B92F2681F059E450094A96B /* CelulaVazia.swift */,
 				5B92F26A1F06EB5D0094A96B /* DiaSelecionado.swift */,
-				5BB89C861F1652F8008A7ABB /* CalendarioHeader.swift */,
-				5BB89C881F1666AC008A7ABB /* CalendarioFooter.swift */,
-				5BB89C8A1F18F1D1008A7ABB /* CelulaDiaCalendario.swift */,
 				5BB89C8C1F190C83008A7ABB /* DetalhesEvento.swift */,
 				5B38AA1A1F27848700ACE4C3 /* DetalhesDia.swift */,
-				A928207A1F281B6D00958B1D /* ComentariosTarefa.swift */,
-				A9BE31521F28DD55002E476F /* NovoEvento.swift */,
-				5B3853151F2A1CDE000E52D8 /* PesquisarLocalNovoEvento.swift */,
 			);
 			name = AbaAgenda;
 			sourceTree = "<group>";
@@ -329,12 +316,27 @@
 			name = "Classes Globais";
 			sourceTree = "<group>";
 		};
+		A921C73C1F3184DC003FA595 /* Células */ = {
+			isa = PBXGroup;
+			children = (
+				5B92F2681F059E450094A96B /* CelulaVazia.swift */,
+				5B8C27EA1F0ADFD400A35962 /* CelulaPadrao.swift */,
+				5B07CD691F26205900877676 /* CelulaPadraoSimples.swift */,
+				5BB89C8A1F18F1D1008A7ABB /* CelulaDiaCalendario.swift */,
+			);
+			name = "Células";
+			sourceTree = "<group>";
+		};
 		A9573FD01F3141CA000D1D09 /* Módulos Reutilizaveis */ = {
 			isa = PBXGroup;
 			children = (
 				A95B682D1F2AC3D600130696 /* CalendarioDataHora.swift */,
 				A9573FD11F314200000D1D09 /* ConfirmarAcao.swift */,
+				A9BE31521F28DD55002E476F /* NovoEvento.swift */,
 				5BB432041F31111000FF11FE /* NovaTarefa.swift */,
+				5B3853151F2A1CDE000E52D8 /* PesquisarLocalNovoEvento.swift */,
+				A928207A1F281B6D00958B1D /* ComentariosTarefa.swift */,
+				A921C73C1F3184DC003FA595 /* Células */,
 			);
 			name = "Módulos Reutilizaveis";
 			sourceTree = "<group>";
@@ -622,7 +624,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BB89C891F1666AC008A7ABB /* CalendarioFooter.swift in Sources */,
 				5B821CF21F02CFF900356098 /* AbaPacotesTabela.swift in Sources */,
 				5BFD609E1F0D6EC7001D9C66 /* CelulaChat.swift in Sources */,
 				5B92F2691F059E450094A96B /* CelulaVazia.swift in Sources */,
@@ -630,7 +631,6 @@
 				5BB89C8B1F18F1D1008A7ABB /* CelulaDiaCalendario.swift in Sources */,
 				5B3853161F2A1CDE000E52D8 /* PesquisarLocalNovoEvento.swift in Sources */,
 				5B7ABF9A1EE87AE1007D7616 /* ViewController.swift in Sources */,
-				5BB89C871F1652F8008A7ABB /* CalendarioHeader.swift in Sources */,
 				A95B682E1F2AC3D600130696 /* CalendarioDataHora.swift in Sources */,
 				5B60DFE71F057DB500E7DF16 /* AbaContatosAdicionar.swift in Sources */,
 				5B7ABF981EE87AE1007D7616 /* AppDelegate.swift in Sources */,

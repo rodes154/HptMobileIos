@@ -89,15 +89,7 @@ class AbaAgenda: UIViewController, UICollectionViewDataSource, UICollectionViewD
             }
         }
         return cell
-    }
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "calendarioHeader", for: indexPath) as! CalendarioHeader
-        headerView.ajustarDias(largura: CGFloat((view.frame.width-10)/7))
-        
-        return headerView
-    }
-    
+    }    
     private func atualizarIntervalo(){
         formatter.dateFormat = "dd/MM/yyyy"
         let dataTemp = formatter.date(from: "01/\(indiceMes)/\(indiceAno)")

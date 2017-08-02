@@ -33,8 +33,8 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     var dataFinal = Date()
     var dataButton: Int = 0
     
-    private var locais: Array<String> = []
-    private var responsaveis: Array<String> = []
+    private var locais: Array<String> = ["Local 01","Local 02","Local 03","Local 04","Local 05","Local 06","Local 07","Local 08"]
+    private var responsaveis: Array<String> = ["Tecnico 1","Tecnico 2","Tecnico 3","Tecnico 4","Tecnico 5"]
     
     override func viewDidLoad() {
         bordas()
@@ -107,6 +107,16 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         
         default:
             return 1
+        }
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        switch pickerView {
+        case localPickerView:
+            return locais[row]
+        case responsavelPickerView:
+            return responsaveis[row]
+        default:
+            return ""
         }
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
