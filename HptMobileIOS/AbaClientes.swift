@@ -77,10 +77,12 @@ class AbaClientes: UIViewController, UITableViewDelegate, UITableViewDataSource,
         conn.realizarConexao(funcao: "consultarClientes", metodo: "GET") { (objeto) in
             DispatchQueue.main.async(execute:  {
                 
-                for i in 0...objeto.count-1{
-                    if(objeto.keys.contains(String(i))){
+                let tempObject = objeto as! Dictionary<String,Any>
+                
+                for i in 0...tempObject.count-1{
+                    if(tempObject.keys.contains(String(i))){
                         
-                        let tempList = objeto[String(i)] as! Array<String>
+                        let tempList = tempObject[String(i)] as! Array<String>
                         self.nomes.append(tempList[0])
                         self.unidade.append(tempList[1])
                     }

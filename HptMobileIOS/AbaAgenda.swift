@@ -42,7 +42,8 @@ class AbaAgenda: UIViewController, UICollectionViewDataSource, UICollectionViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "diaSelecionado"){
             let diaView = segue.destination as? DiaSelecionado
-            diaView?.dia = diaSelecionado
+            formatter.dateFormat = "dd/MM/yyyy"
+            diaView?.data = formatter.date(from: "\(diaSelecionado)/\(indiceMes)/\(indiceAno)")!
             diaView?.largura = view.frame.width
             diaView?.altura = view.frame.height
         }

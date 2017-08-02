@@ -11,8 +11,8 @@ import UIKit
 
 class ConexaoWebService{
     
-    //private let endereco = "http://192.168.0.116:8080/HptMobileWS/pacoteFuncoes/"
-    private let endereco = "http://177.69.102.161:22119/HptMobileWS/pacoteFuncoes/"
+    private let endereco = "http://192.168.0.116:8080/HptMobileWS/usuario/"
+    //private let endereco = "http://177.69.102.161:22119/HptMobileWS/pacoteFuncoes/"
     private var requestUrl :URLRequest?
     private var parametros = ""
     
@@ -46,17 +46,19 @@ class ConexaoWebService{
     
     
     
-    public func realizarConexao(funcao: String, metodo: String, completionHandler:@escaping (Dictionary<String, Any>) -> ()) 	{
+    public func realizarConexao(funcao: String, metodo: String, completionHandler:@escaping (AnyObject?) -> ()) 	{
         
         configurar(metodo: metodo, funcao: funcao)
-        
-        var dictFromJson:Dictionary<String, Any>?
         
         let task = URLSession.shared.dataTask(with: requestUrl!) { data, response, error in
     
             let json = try? JSONSerialization.jsonObject(with: data!, options: [])
-            dictFromJson = (json as?[String:Any])!
-            completionHandler(dictFromJson!)
+            
+            if json == nil {
+                return
+            }
+            
+            completionHandler(json as AnyObject)
             
             if data == nil {
                 print(error ?? String())

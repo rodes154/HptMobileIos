@@ -127,10 +127,10 @@ class AbaContatos: UIViewController, UITableViewDelegate, UITableViewDataSource,
             
             DispatchQueue.main.async(execute: {
                 
-                self.nomesArray = objeto["Nomes"] as! Array<String>
-                self.mensagemArray = objeto["Mensagem"] as! Array<String>
-                self.dataArray = objeto["Data"] as! Array<String>
-                self.notificacoesArray = objeto["Notificacoes"] as! Array<Int>
+                self.nomesArray = objeto?["Nomes"] as! Array<String>
+                self.mensagemArray = objeto?["Mensagem"] as! Array<String>
+                self.dataArray = objeto?["Data"] as! Array<String>
+                self.notificacoesArray = objeto?["Notificacoes"] as! Array<Int>
                 
                 
                 self.contatosTableView.reloadData();

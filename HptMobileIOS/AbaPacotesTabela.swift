@@ -66,10 +66,12 @@ class AbaPacotesTabela: UIViewController, UITableViewDelegate, UITableViewDataSo
             
             DispatchQueue.main.async(execute: {
                 
-                for i in 0...objeto.count-1{
-                    if(objeto.keys.contains(String(i))){
+                let tempObject = objeto as! Dictionary<String,Any>
+                
+                for i in 0...tempObject.count-1{
+                    if(tempObject.keys.contains(String(i))){
                         self.keys.append(i)
-                        let tempList = objeto[String(i)] as! Array<String>
+                        let tempList = tempObject[String(i)] as! Array<String>
                         self.nomes.append(tempList[0])
                         self.logs.append(tempList[1])
                         self.data.append(tempList[2])

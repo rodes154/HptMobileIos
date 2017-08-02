@@ -18,7 +18,7 @@ class DiaSelecionado: UIViewController, UITableViewDelegate{
     
     public var largura: CGFloat = 0
     public var altura: CGFloat = 0
-    public var dia: String = ""
+    public var data = Date()
     private var eventosArray: Array<Array<String>> = []
     
     
@@ -41,8 +41,8 @@ class DiaSelecionado: UIViewController, UITableViewDelegate{
             
             DispatchQueue.main.async(execute: {
                 
-                for i in 0...objeto.count-1{
-                    self.eventosArray.append(objeto[String(i)] as! Array<String>)
+                for i in 0...(objeto?.count)!-1{
+                    self.eventosArray.append(objeto?[String(i)] as! Array<String>)
                 }
                 self.construirDetalhesDia()
             })
@@ -68,7 +68,7 @@ class DiaSelecionado: UIViewController, UITableViewDelegate{
         detalhesDiaView.center = self.view.center
         detalhesDiaView.layer.cornerRadius = 10
         detalhesDiaView.alpha = 0
-        detalhesDiaView.dia(diaNumero: dia)
+        //detalhesDiaView.dia(dataDia: data)
         detalhesDiaView.eventos(eventos: eventosArray)
         detalhesDiaView.definirTamanho(largura: view.frame.width, altura: view.frame.height)
         self.view.addSubview(detalhesDiaView)
