@@ -14,7 +14,7 @@ class HomeView: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        print(Usuario.getNome())
         
         
     }

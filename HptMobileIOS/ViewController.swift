@@ -54,6 +54,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
                         self.credIncorretasLabel.isHidden=false
                         return
                     } else {
+                        
+                        let tempDict = objeto as! Dictionary<String,String>
+                        Usuario.setId(id: Int(tempDict["id"]!)!)
+                        Usuario.setNome(nome: tempDict["nome"]!)
+                        Usuario.setHash(hash: tempDict["hash"]!)
                         InfoGlobal.setWidth(width: self.view.frame.width)
                         InfoGlobal.setHeight(height: self.view.frame.height)
                         self.performSegue(withIdentifier: "showTabController", sender: nil)
