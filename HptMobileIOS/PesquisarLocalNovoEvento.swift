@@ -34,7 +34,7 @@ class PesquisarLocalNovoEvento: UIView, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "celulaPesquisaLocal", for: indexPath) as! CelulaPadraoSimples
+        let cell = tableView.dequeueReusableCell(withIdentifier: "celulaPesquisaLocal", for: indexPath) as! CelulaSimplesTableView
         
         cell.descricaoLabel.text = String(indexPath.row)
         return cell

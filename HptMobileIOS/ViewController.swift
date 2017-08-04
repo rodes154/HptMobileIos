@@ -41,11 +41,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let conn = ConexaoWebService()
         conn.inserirParametro(paramKey: "param1", paramValue: loginTextField.text!)
         conn.inserirParametro(paramKey: "param2", paramValue: passTextField.text!)
-        conn.realizarConexao(funcao: "login", metodo: "POST") { objeto in
+        conn.realizarConexao(pacote: "usuario", funcao: "login", metodo: "POST") { objeto in
             
                 DispatchQueue.main.async(execute: {
                     
-                    print(objeto)
+                    self.performSegue(withIdentifier: "showTabController", sender: self)
+                    
                     if (objeto is NSNull) {
                         self.credIncorretasLabel.transform = CGAffineTransform.init(scaleX: 1.5, y: 1.5)
                         UILabel.animate(withDuration: 0.2, animations: {

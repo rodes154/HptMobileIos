@@ -81,17 +81,17 @@ class CalendarioDataHora: UIViewController, UICollectionViewDelegateFlowLayout, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaCalendario", for: indexPath) as! CelulaVazia
-        cell.eventoImageView.isHidden = true
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaCalendario", for: indexPath) as! CelulaSimplesCollectionView
+        cell.imagem.isHidden = true
         
         
         if(indexPath.row<indiceDiaInicioMes){
-            cell.diaLabel.isHidden = true
+            cell.label.isHidden = true
         }else{
-            cell.diaLabel.isHidden = false
-            cell.diaLabel.text = String((indexPath.row+1)-indiceDiaInicioMes)
+            cell.label.isHidden = false
+            cell.label.text = String((indexPath.row+1)-indiceDiaInicioMes)
             if(indexPath.row+1-indiceDiaInicioMes==Int(indiceDia)!){
-                cell.eventoImageView.isHidden = false
+                cell.imagem.isHidden = false
                 celulaSelecionada = indexPath
                 collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredVertically)
             }
@@ -107,9 +107,9 @@ class CalendarioDataHora: UIViewController, UICollectionViewDelegateFlowLayout, 
             
         }else{
             collectionView.deselectItem(at: celulaSelecionada, animated: true)
-            (collectionView.cellForItem(at: celulaSelecionada) as? CelulaVazia)?.eventoImageView.isHidden = true
-            (collectionView.cellForItem(at: indexPath) as? CelulaVazia)?.eventoImageView.isHidden = false
-            indiceDia = ((collectionView.cellForItem(at: indexPath) as? CelulaVazia)?.diaLabel.text)!
+            (collectionView.cellForItem(at: celulaSelecionada) as? CelulaSimplesCollectionView)?.imagem.isHidden = true
+            (collectionView.cellForItem(at: indexPath) as? CelulaSimplesCollectionView)?.imagem.isHidden = false
+            indiceDia = ((collectionView.cellForItem(at: indexPath) as? CelulaSimplesCollectionView)?.label.text)!
             celulaSelecionada = indexPath
             atualizarLabelInferior()
         }

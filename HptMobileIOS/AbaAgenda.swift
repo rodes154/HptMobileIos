@@ -74,19 +74,19 @@ class AbaAgenda: UIViewController, UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaCalendario", for: indexPath) as! CelulaVazia
-        cell.eventoImageView.image = UIImage(named: "circuloCinza")
-        cell.diaLabel.transform = CGAffineTransform.identity
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "celulaCalendario", for: indexPath) as! CelulaSimplesCollectionView
+        cell.imagem.image = UIImage(named: "circuloCinza")
+        cell.label.transform = CGAffineTransform.identity
         
         if(indexPath.row<intervalo){
-            cell.diaLabel.isHidden = true
-            cell.eventoImageView.isHidden = true
+            cell.label.isHidden = true
+            cell.imagem.isHidden = true
         }else{
-            cell.diaLabel.isHidden = false
-            cell.eventoImageView.isHidden = false
-            cell.diaLabel.text = String((indexPath.row+1)-intervalo)
+            cell.label.isHidden = false
+            cell.imagem.isHidden = false
+            cell.label.text = String((indexPath.row+1)-intervalo)
             if(indexPath.row+1-intervalo==Int(indiceDia)!&&indiceMes==InfoGlobal.getDataAtual(tipo: "mes")){
-                cell.diaLabel.transform = CGAffineTransform.init(scaleX: 1.5, y: 1.5)
+                cell.label.transform = CGAffineTransform.init(scaleX: 1.5, y: 1.5)
             }
         }
         return cell

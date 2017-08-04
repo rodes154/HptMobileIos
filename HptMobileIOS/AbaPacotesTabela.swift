@@ -62,7 +62,7 @@ class AbaPacotesTabela: UIViewController, UITableViewDelegate, UITableViewDataSo
     private func buscarPacotes(){
         
         let conn = ConexaoWebService()
-        conn.realizarConexao(funcao: "consultarPacotes", metodo: "GET") { (objeto) in
+        conn.realizarConexao(pacote: "pacotes", funcao: "consultarPacotes", metodo: "GET") { (objeto) in
             
             DispatchQueue.main.async(execute: {
                 

@@ -43,7 +43,7 @@ class AbaClientes: UIViewController, UITableViewDelegate, UITableViewDataSource,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "celulaClientes", for: indexPath) as! CelulaPadrao
+        let cell = tableView.dequeueReusableCell(withIdentifier: "celulaClientes", for: indexPath) as! CelulaCompletaTableView
         if(pesquisando){
             cell.labelPrincipal.text = nomesFiltrados[indexPath.row]
             cell.labelSecundaria.text = unidadeFiltrado[indexPath.row]
@@ -74,7 +74,7 @@ class AbaClientes: UIViewController, UITableViewDelegate, UITableViewDataSource,
     private func buscarClientes(){
         
         let conn = ConexaoWebService()
-        conn.realizarConexao(funcao: "consultarClientes", metodo: "GET") { (objeto) in
+        conn.realizarConexao(pacote: "clientes", funcao: "consultarClientes", metodo: "GET") { (objeto) in
             DispatchQueue.main.async(execute:  {
                 
                 let tempObject = objeto as! Dictionary<String,Any>

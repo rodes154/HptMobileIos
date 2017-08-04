@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CelulaPadrao: UITableViewCell {
+class CelulaCompletaTableView: UITableViewCell {
     
     @IBOutlet weak var labelPrincipal: UILabel!
     @IBOutlet weak var labelSecundaria: UILabel!

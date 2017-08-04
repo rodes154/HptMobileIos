@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		40D7A9009F110369DB3760FA /* Pods_HptMobileIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CC94319D7F24AE6590B8AA /* Pods_HptMobileIOS.framework */; };
-		5B07CD6A1F26205900877676 /* CelulaPadraoSimples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B07CD691F26205900877676 /* CelulaPadraoSimples.swift */; };
+		5B07CD6A1F26205900877676 /* CelulaSimplesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B07CD691F26205900877676 /* CelulaSimplesTableView.swift */; };
 		5B3853161F2A1CDE000E52D8 /* PesquisarLocalNovoEvento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3853151F2A1CDE000E52D8 /* PesquisarLocalNovoEvento.swift */; };
 		5B38AA1B1F27848700ACE4C3 /* DetalhesDia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38AA1A1F27848700ACE4C3 /* DetalhesDia.swift */; };
 		5B60DFE51F057BD200E7DF16 /* AbaContatos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B60DFE41F057BD200E7DF16 /* AbaContatos.swift */; };
@@ -24,13 +24,14 @@
 		5B7ABFB81EE87AE2007D7616 /* HptMobileIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7ABFB71EE87AE2007D7616 /* HptMobileIOSUITests.swift */; };
 		5B821CF21F02CFF900356098 /* AbaPacotesTabela.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B821CF11F02CFF900356098 /* AbaPacotesTabela.swift */; };
 		5B821CF61F02E60900356098 /* AbaGeral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B821CF51F02E60900356098 /* AbaGeral.swift */; };
-		5B8C27EB1F0ADFD400A35962 /* CelulaPadrao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C27EA1F0ADFD400A35962 /* CelulaPadrao.swift */; };
+		5B8C27EB1F0ADFD400A35962 /* CelulaCompletaTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C27EA1F0ADFD400A35962 /* CelulaCompletaTableView.swift */; };
 		5B92F2611F0589D20094A96B /* AbaPacotesDescricao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92F2601F0589D20094A96B /* AbaPacotesDescricao.swift */; };
 		5B92F2641F058E660094A96B /* AbaClientes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92F2631F058E660094A96B /* AbaClientes.swift */; };
 		5B92F2671F059A4A0094A96B /* AbaAgenda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92F2661F059A4A0094A96B /* AbaAgenda.swift */; };
-		5B92F2691F059E450094A96B /* CelulaVazia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92F2681F059E450094A96B /* CelulaVazia.swift */; };
+		5B92F2691F059E450094A96B /* CelulaSimplesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92F2681F059E450094A96B /* CelulaSimplesCollectionView.swift */; };
 		5B92F26B1F06EB5D0094A96B /* DiaSelecionado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92F26A1F06EB5D0094A96B /* DiaSelecionado.swift */; };
 		5BB432051F31111000FF11FE /* NovaTarefa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB432041F31111000FF11FE /* NovaTarefa.swift */; };
+		5BB432071F34FDDF00FF11FE /* Aviso.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB432061F34FDDF00FF11FE /* Aviso.swift */; };
 		5BB89C8B1F18F1D1008A7ABB /* CelulaDiaCalendario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB89C8A1F18F1D1008A7ABB /* CelulaDiaCalendario.swift */; };
 		5BB89C8D1F190C83008A7ABB /* DetalhesEvento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB89C8C1F190C83008A7ABB /* DetalhesEvento.swift */; };
 		5BFD609C1F0D6602001D9C66 /* AbaContatosChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFD609B1F0D6602001D9C66 /* AbaContatosChat.swift */; };
@@ -66,7 +67,7 @@
 /* Begin PBXFileReference section */
 		22029B8E69934239CBF95D5A /* Pods-HptMobileIOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HptMobileIOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HptMobileIOSTests/Pods-HptMobileIOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		587C0F984CC4907D2CD21E4F /* Pods-HptMobileIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HptMobileIOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HptMobileIOSUITests/Pods-HptMobileIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		5B07CD691F26205900877676 /* CelulaPadraoSimples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelulaPadraoSimples.swift; sourceTree = "<group>"; };
+		5B07CD691F26205900877676 /* CelulaSimplesTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelulaSimplesTableView.swift; sourceTree = "<group>"; };
 		5B3853151F2A1CDE000E52D8 /* PesquisarLocalNovoEvento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PesquisarLocalNovoEvento.swift; sourceTree = "<group>"; };
 		5B38AA1A1F27848700ACE4C3 /* DetalhesDia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalhesDia.swift; sourceTree = "<group>"; };
 		5B5587121EF952D10001CF3A /* HptMobileIOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HptMobileIOS-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -89,13 +90,14 @@
 		5B7ABFB91EE87AE2007D7616 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B821CF11F02CFF900356098 /* AbaPacotesTabela.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbaPacotesTabela.swift; sourceTree = "<group>"; };
 		5B821CF51F02E60900356098 /* AbaGeral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbaGeral.swift; sourceTree = "<group>"; };
-		5B8C27EA1F0ADFD400A35962 /* CelulaPadrao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelulaPadrao.swift; sourceTree = "<group>"; };
+		5B8C27EA1F0ADFD400A35962 /* CelulaCompletaTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelulaCompletaTableView.swift; sourceTree = "<group>"; };
 		5B92F2601F0589D20094A96B /* AbaPacotesDescricao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbaPacotesDescricao.swift; sourceTree = "<group>"; };
 		5B92F2631F058E660094A96B /* AbaClientes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbaClientes.swift; sourceTree = "<group>"; };
 		5B92F2661F059A4A0094A96B /* AbaAgenda.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbaAgenda.swift; sourceTree = "<group>"; };
-		5B92F2681F059E450094A96B /* CelulaVazia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelulaVazia.swift; sourceTree = "<group>"; };
+		5B92F2681F059E450094A96B /* CelulaSimplesCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelulaSimplesCollectionView.swift; sourceTree = "<group>"; };
 		5B92F26A1F06EB5D0094A96B /* DiaSelecionado.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaSelecionado.swift; sourceTree = "<group>"; };
 		5BB432041F31111000FF11FE /* NovaTarefa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovaTarefa.swift; sourceTree = "<group>"; };
+		5BB432061F34FDDF00FF11FE /* Aviso.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aviso.swift; sourceTree = "<group>"; };
 		5BB89C8A1F18F1D1008A7ABB /* CelulaDiaCalendario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelulaDiaCalendario.swift; sourceTree = "<group>"; };
 		5BB89C8C1F190C83008A7ABB /* DetalhesEvento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalhesEvento.swift; sourceTree = "<group>"; };
 		5BFD609B1F0D6602001D9C66 /* AbaContatosChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbaContatosChat.swift; sourceTree = "<group>"; };
@@ -310,6 +312,15 @@
 			name = AbaAgenda;
 			sourceTree = "<group>";
 		};
+		5BB432081F34FDEB00FF11FE /* Dialogs */ = {
+			isa = PBXGroup;
+			children = (
+				5BB432061F34FDDF00FF11FE /* Aviso.swift */,
+				A9573FD11F314200000D1D09 /* ConfirmarAcao.swift */,
+			);
+			name = Dialogs;
+			sourceTree = "<group>";
+		};
 		A914E91B1F294A2E00C7B6F5 /* Classes Globais */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,9 +333,9 @@
 		A921C73C1F3184DC003FA595 /* Células */ = {
 			isa = PBXGroup;
 			children = (
-				5B92F2681F059E450094A96B /* CelulaVazia.swift */,
-				5B8C27EA1F0ADFD400A35962 /* CelulaPadrao.swift */,
-				5B07CD691F26205900877676 /* CelulaPadraoSimples.swift */,
+				5B92F2681F059E450094A96B /* CelulaSimplesCollectionView.swift */,
+				5B8C27EA1F0ADFD400A35962 /* CelulaCompletaTableView.swift */,
+				5B07CD691F26205900877676 /* CelulaSimplesTableView.swift */,
 				5BB89C8A1F18F1D1008A7ABB /* CelulaDiaCalendario.swift */,
 			);
 			name = "Células";
@@ -334,11 +345,11 @@
 			isa = PBXGroup;
 			children = (
 				A95B682D1F2AC3D600130696 /* CalendarioDataHora.swift */,
-				A9573FD11F314200000D1D09 /* ConfirmarAcao.swift */,
 				A9BE31521F28DD55002E476F /* NovoEvento.swift */,
 				5BB432041F31111000FF11FE /* NovaTarefa.swift */,
 				5B3853151F2A1CDE000E52D8 /* PesquisarLocalNovoEvento.swift */,
 				A928207A1F281B6D00958B1D /* ComentariosTarefa.swift */,
+				5BB432081F34FDEB00FF11FE /* Dialogs */,
 				A921C73C1F3184DC003FA595 /* Células */,
 			);
 			name = "Módulos Reutilizaveis";
@@ -629,7 +640,7 @@
 			files = (
 				5B821CF21F02CFF900356098 /* AbaPacotesTabela.swift in Sources */,
 				5BFD609E1F0D6EC7001D9C66 /* CelulaChat.swift in Sources */,
-				5B92F2691F059E450094A96B /* CelulaVazia.swift in Sources */,
+				5B92F2691F059E450094A96B /* CelulaSimplesCollectionView.swift in Sources */,
 				A914E91D1F294A4C00C7B6F5 /* InfoGlobal.swift in Sources */,
 				5BB89C8B1F18F1D1008A7ABB /* CelulaDiaCalendario.swift in Sources */,
 				A9415A671F34907D001342C1 /* Usuario.swift in Sources */,
@@ -645,12 +656,13 @@
 				5B821CF61F02E60900356098 /* AbaGeral.swift in Sources */,
 				5B38AA1B1F27848700ACE4C3 /* DetalhesDia.swift in Sources */,
 				5BB432051F31111000FF11FE /* NovaTarefa.swift in Sources */,
+				5BB432071F34FDDF00FF11FE /* Aviso.swift in Sources */,
 				5BB89C8D1F190C83008A7ABB /* DetalhesEvento.swift in Sources */,
-				5B07CD6A1F26205900877676 /* CelulaPadraoSimples.swift in Sources */,
+				5B07CD6A1F26205900877676 /* CelulaSimplesTableView.swift in Sources */,
 				5BFD609C1F0D6602001D9C66 /* AbaContatosChat.swift in Sources */,
 				5B92F2671F059A4A0094A96B /* AbaAgenda.swift in Sources */,
 				A9BE31531F28DD55002E476F /* NovoEvento.swift in Sources */,
-				5B8C27EB1F0ADFD400A35962 /* CelulaPadrao.swift in Sources */,
+				5B8C27EB1F0ADFD400A35962 /* CelulaCompletaTableView.swift in Sources */,
 				5B92F26B1F06EB5D0094A96B /* DiaSelecionado.swift in Sources */,
 				5B92F2641F058E660094A96B /* AbaClientes.swift in Sources */,
 				A928207B1F281B6D00958B1D /* ComentariosTarefa.swift in Sources */,

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, retornarDataDelegate{
+class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,UITableViewDelegate, UITableViewDataSource, retornarDataDelegate, retornarTarefaDelegate, protocoloConfirmarAcao{
     
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var mainNavigationBar: UINavigationBar!
@@ -27,7 +27,10 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     @IBOutlet weak var finalButton: UIButton!
     
     @IBOutlet weak var tarefasTableView: UITableView!
+    @IBOutlet weak var removerTarefaButton: UIButton!
+    @IBOutlet weak var editarTarefaButton: UIButton!
     
+    var tarefas: Array<Array<String>> = []
     var formatter = DateFormatter()
     var dataInicio = Date()
     var dataFinal = Date()
@@ -41,8 +44,8 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         view.frame.size.width = InfoGlobal.getWidth()
         
         
-        inicioButton.setTitle(InfoGlobal.getDataAtual(tipo: "completa"), for: .normal)
-        finalButton.setTitle(InfoGlobal.getDataAtual(tipo: "completa"), for: .normal)
+        inicioButton.setTitle(InfoGlobal.getDataAtual(tipo: "completaHora"), for: .normal)
+        finalButton.setTitle(InfoGlobal.getDataAtual(tipo: "completaHora"), for: .normal)
         
     }
     
@@ -84,6 +87,25 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         }
         
     }
+
+    func retornarTarefa(tarefa: Array<String>) {
+        tarefas.append(tarefa)
+        
+        tarefasTableView.reloadData()
+    }
+    
+    func retornoAcao(confirmar: Bool) {
+        if(confirmar){
+            tarefas.remove(at: (tarefasTableView.indexPathForSelectedRow?.row)!)
+            tarefasTableView.reloadData()
+            removerTarefaButton.isEnabled = false
+            editarTarefaButton.isEnabled = false
+        } else {
+            
+        }
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier=="selecionarData"){
             let dataVC = segue.destination as? CalendarioDataHora
@@ -93,6 +115,50 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
             dataVC?.indiceMes = InfoGlobal.getDataAtual(tipo: "mes")
             dataVC?.indiceAno = Int(InfoGlobal.getDataAtual(tipo: "ano"))!
         }
+        if(segue.identifier=="novaTarefa"){
+            let tarefaVC = segue.destination as? NovaTarefa
+            tarefaVC?.tarefaDelegate = self
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tarefas.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "celulaSimples", for: indexPath) as! CelulaSimplesTableView
+        
+        cell.descricaoLabel.text = tarefas[indexPath.row][0]
+        cell.imagem.image = imagemPrioridade(numero: Int(tarefas[indexPath.row][2])!)
+        return cell
+        
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        removerTarefaButton.isEnabled = true
+        editarTarefaButton.isEnabled = true
+        
+    }
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
+        removerTarefaButton.isEnabled = false
+        editarTarefaButton.isEnabled = false
+        
+    }
+    
+    private func imagemPrioridade(numero: Int) -> UIImage{
+        
+        switch numero {
+        case 1:
+            return UIImage(named: "circuloVerde")!
+        case 2:
+            return UIImage(named: "circuloAmarelo")!
+        case 3:
+            return UIImage(named: "circuloVermelho")!
+            
+        default:
+            return UIImage(named: "circuloVerde")!
+        }
+        
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -159,6 +225,14 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     @IBAction func novaTarefaButton(_ sender: Any) {
         
         performSegue(withIdentifier: "novaTarefa", sender: self)
+        
+    }
+    @IBAction func removerTarefaButton(_ sender: Any) {
+        
+        let vc  = storyboard?.instantiateViewController(withIdentifier: "confirmarViewController") as? ConfirmarAcao
+        vc?.acaoDelegate = self
+        vc?.acao = "Excluir tarefa selecionada ?"
+        present(vc!, animated: true, completion: nil)
         
     }
     

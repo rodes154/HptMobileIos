@@ -40,7 +40,7 @@ class AbaContatos: UIViewController, UITableViewDelegate, UITableViewDataSource,
         let range = start..<end
         
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "celulaContatos", for: indexPath) as! CelulaPadrao
+        let cell = tableView.dequeueReusableCell(withIdentifier: "celulaContatos", for: indexPath) as! CelulaCompletaTableView
         cell.labelPrincipal.text = nomesArray[indexPath.row]
         cell.labelSecundaria.text = mensagemArray[indexPath.row]
         cell.labelDireitaSuperior.text = dataArray[indexPath.row].substring(with: range)
@@ -78,7 +78,7 @@ class AbaContatos: UIViewController, UITableViewDelegate, UITableViewDataSource,
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "mostrarChat"){
-            let cell = contatosTableView.cellForRow(at: [0,indiceSelecionado]) as! CelulaPadrao
+            let cell = contatosTableView.cellForRow(at: [0,indiceSelecionado]) as! CelulaCompletaTableView
             let nextScreen = segue.destination as? AbaContatosChat
             nextScreen?.title = cell.labelPrincipal.text
             
@@ -123,7 +123,7 @@ class AbaContatos: UIViewController, UITableViewDelegate, UITableViewDataSource,
         
         let conn = ConexaoWebService()
         conn.inserirParametro(paramKey: "code", paramValue: Credenciais.getSessao()!)
-        conn.realizarConexao(funcao: "consultarContatos", metodo: "GET") { (objeto) in
+        conn.realizarConexao(pacote: "contatos", funcao: "consultarContatos", metodo: "GET") { (objeto) in
             
             DispatchQueue.main.async(execute: {
                 

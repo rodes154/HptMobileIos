@@ -8,8 +8,9 @@
 
 import UIKit
 
-class CelulaPadraoSimples: UITableViewCell{
+class CelulaSimplesTableView: UITableViewCell{
     
     @IBOutlet weak var descricaoLabel: UILabel!
+    @IBOutlet weak var imagem: UIImageView!
     
 }

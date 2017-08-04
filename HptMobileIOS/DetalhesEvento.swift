@@ -28,7 +28,7 @@ class DetalhesEvento: UIView, UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "celulaDescricao", for: indexPath) as! CelulaPadraoSimples
+        let cell = tableView.dequeueReusableCell(withIdentifier: "celulaDescricao", for: indexPath) as! CelulaSimplesTableView
         cell.descricaoLabel.text = "Tarefa \(indexPath.row)"
         
         return cell

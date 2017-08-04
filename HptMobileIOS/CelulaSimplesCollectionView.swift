@@ -8,11 +8,11 @@
 
 import UIKit
 
-class CelulaVazia: UICollectionViewCell{
+class CelulaSimplesCollectionView: UICollectionViewCell{
     
     
-    @IBOutlet weak var diaLabel: UILabel!
-    @IBOutlet weak var eventoImageView: UIImageView!
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var imagem: UIImageView!
     
     
 }

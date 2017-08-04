@@ -38,6 +38,8 @@ class InfoGlobal {
             formatter.dateFormat = "dd/MM/yyyy"
         case "completa":
             formatter.dateFormat = "E, d MMM yyyy"
+        case "completaHora":
+            formatter.dateFormat = "E, d MMM yyyy HH:mm"
         case "mesAno":
             formatter.dateFormat = "MMM yyyy"
         case "extensa":

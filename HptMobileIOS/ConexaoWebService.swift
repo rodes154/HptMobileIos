@@ -11,15 +11,17 @@ import UIKit
 
 class ConexaoWebService{
     
-    //private let endereco = "http://192.168.0.116:8080/HptMobileWS/usuario/"
-    private let endereco = "http://177.69.102.161:22119/HptMobileWS/usuario/"
+    private var endereco = "http://192.168.0.116:8080/HptMobileWS/"
+    //private let endereco = "http://177.69.102.161:22119/HptMobileWS/usuario/"
     private var requestUrl :URLRequest?
     private var parametros = ""
     
     public func inserirParametro(paramKey: String, paramValue: String){
         parametros = parametros+paramKey+"="+paramValue+"&"
     }
-    private func configurar(metodo: String, funcao: String){
+    private func configurar(pacote: String, metodo: String, funcao: String){
+        
+        endereco = endereco+pacote+"/"
         
         switch metodo {
         case "GET":
@@ -46,9 +48,9 @@ class ConexaoWebService{
     
     
     
-    public func realizarConexao(funcao: String, metodo: String, completionHandler:@escaping (AnyObject) -> ()) 	{
+    public func realizarConexao(pacote: String, funcao: String, metodo: String, completionHandler:@escaping (AnyObject) -> ()) 	{
         
-        configurar(metodo: metodo, funcao: funcao)
+        configurar(pacote: pacote, metodo: metodo, funcao: funcao)
         
         let task = URLSession.shared.dataTask(with: requestUrl!) { data, response, error in
     

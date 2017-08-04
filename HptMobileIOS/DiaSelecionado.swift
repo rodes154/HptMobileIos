@@ -37,15 +37,22 @@ class DiaSelecionado: UIViewController, UITableViewDelegate{
     private func carregarEventos(){
         
         let conn = ConexaoWebService()
-        conn.realizarConexao(funcao: "consultarEventos", metodo: "GET") { (objeto) in
+        conn.realizarConexao(pacote: "eventos", funcao: "consultarEventos", metodo: "GET") { (objeto) in
             
-            DispatchQueue.main.async(execute: {
-                
-                for i in 0...(objeto.count)!-1{
-                    self.eventosArray.append(objeto[String(i)] as! Array<String>)
-                }
+            print(objeto)
+            if(objeto is NSNull){
                 self.construirDetalhesDia()
-            })
+            }else{
+                let tempDict = objeto as! Dictionary<String,String>
+                
+                DispatchQueue.main.async(execute: {
+                    
+                    for i in 0...tempDict.count-1{
+                        self.eventosArray.append(objeto[String(i)] as! Array<String>)
+                    }
+                    self.construirDetalhesDia()
+                })
+            }
         }
     }
     
@@ -68,7 +75,6 @@ class DiaSelecionado: UIViewController, UITableViewDelegate{
         detalhesDiaView.center = self.view.center
         detalhesDiaView.layer.cornerRadius = 10
         detalhesDiaView.alpha = 0
-        //detalhesDiaView.dia(dataDia: data)
         detalhesDiaView.eventos(eventos: eventosArray)
         detalhesDiaView.definirTamanho(largura: view.frame.width, altura: view.frame.height)
         self.view.addSubview(detalhesDiaView)
