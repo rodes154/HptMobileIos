@@ -42,36 +42,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
         conn.inserirParametro(paramKey: "param1", paramValue: loginTextField.text!)
         conn.inserirParametro(paramKey: "param2", paramValue: passTextField.text!)
         conn.realizarConexao(funcao: "login", metodo: "POST") { objeto in
-                
+            
                 DispatchQueue.main.async(execute: {
                     
-                    if (objeto == nil) {
+                    print(objeto)
+                    if (objeto is NSNull) {
                         self.credIncorretasLabel.transform = CGAffineTransform.init(scaleX: 1.5, y: 1.5)
                         UILabel.animate(withDuration: 0.2, animations: {
                             self.credIncorretasLabel.transform = CGAffineTransform.identity
                         })
                         self.credIncorretasLabel.isHidden=false
                         return
-                    }
-                    
-                    var tempDict: Dictionary<String, String>
-                    tempDict = objeto as! Dictionary<String, String>
-                    
-                    if(tempDict["checagemLogin"]=="1"){
-                        
-                        Credenciais.setSessao(param: tempDict["sessao"])
-                        Credenciais.setAcesso(param: Int(tempDict["acesso"]!)!)
+                    } else {
                         InfoGlobal.setWidth(width: self.view.frame.width)
                         InfoGlobal.setHeight(height: self.view.frame.height)
                         self.performSegue(withIdentifier: "showTabController", sender: nil)
-                        
-                    } else{
-                        
-                        self.credIncorretasLabel.transform = CGAffineTransform.init(scaleX: 1.5, y: 1.5)
-                        UILabel.animate(withDuration: 0.2, animations: { 
-                            self.credIncorretasLabel.transform = CGAffineTransform.identity
-                        })
-                        self.credIncorretasLabel.isHidden=false
                     }
                 })
         }

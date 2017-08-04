@@ -41,8 +41,8 @@ class DiaSelecionado: UIViewController, UITableViewDelegate{
             
             DispatchQueue.main.async(execute: {
                 
-                for i in 0...(objeto?.count)!-1{
-                    self.eventosArray.append(objeto?[String(i)] as! Array<String>)
+                for i in 0...(objeto.count)!-1{
+                    self.eventosArray.append(objeto[String(i)] as! Array<String>)
                 }
                 self.construirDetalhesDia()
             })
