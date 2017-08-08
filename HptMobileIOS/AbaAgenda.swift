@@ -142,7 +142,8 @@ class AbaAgenda: UIViewController, UICollectionViewDataSource, UICollectionViewD
     }
     
     @IBAction func adcionarEventoButton(_ sender: Any) {
-        performSegue(withIdentifier: "adicionarEvento", sender: self)
+        let EventoVC = storyboard?.instantiateViewController(withIdentifier: "novoEvento") as? NovoEvento
+        present(EventoVC!, animated: true, completion: nil)
     }
     
 }

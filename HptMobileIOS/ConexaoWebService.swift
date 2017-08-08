@@ -11,8 +11,8 @@ import UIKit
 
 class ConexaoWebService{
     
-    //private var endereco = "http://192.168.0.116:8080/HptMobileWS/"
-    private var endereco = "http://177.69.102.161:22119/HptMobileWS/"
+    private var endereco = "http://192.168.0.116:8080/HptMobileWS/"
+    //private var endereco = "http://177.69.102.161:22119/HptMobileWS/"
     private var requestUrl :URLRequest?
     private var parametros = ""
     

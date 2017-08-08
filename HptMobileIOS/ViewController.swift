@@ -35,8 +35,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func buttonPressed(_ sender: Any) {
         
-        //Credenciais.setAcesso(param: 1)
-        //self.performSegue(withIdentifier: "showTabController", sender: nil)
+        
+        //self.performSegue(withIdentifier: "showTabController", sender: self)
+        
+        
         
         let conn = ConexaoWebService()
         conn.inserirParametro(paramKey: "param1", paramValue: loginTextField.text!)
@@ -45,7 +47,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
                 DispatchQueue.main.async(execute: {
                     
-                    self.performSegue(withIdentifier: "showTabController", sender: self)
                     
                     if (objeto is NSNull) {
                         self.credIncorretasLabel.transform = CGAffineTransform.init(scaleX: 1.5, y: 1.5)

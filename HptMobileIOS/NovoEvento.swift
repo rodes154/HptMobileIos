@@ -9,14 +9,12 @@
 import Foundation
 import UIKit
 
-class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,UITableViewDelegate, UITableViewDataSource, retornarDataDelegate, retornarTarefaDelegate, protocoloConfirmarAcao{
+class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,UITableViewDelegate, UITableViewDataSource, retornarDataDelegate, retornarTarefaDelegate, protocoloConfirmarAcao, protocoloPesquisaSimples{
     
+    @IBOutlet weak var bottomNavigationBar: UINavigationBar!
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var mainNavigationBar: UINavigationBar!
     
-    @IBOutlet var pesquisarLocalView: PesquisarLocalNovoEvento!
-    
-    @IBOutlet weak var efeitoImageView: UIImageView!
     @IBOutlet weak var topoView: UIView!
     @IBOutlet weak var tarefasView: UIView!
     
@@ -26,10 +24,16 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
     @IBOutlet weak var inicioButton: UIButton!
     @IBOutlet weak var finalButton: UIButton!
     
+    @IBOutlet weak var tituloTextField: UITextField!
     @IBOutlet weak var tarefasTableView: UITableView!
     @IBOutlet weak var removerTarefaButton: UIButton!
     @IBOutlet weak var editarTarefaButton: UIButton!
     
+    var retornoMap = NSMapTable<NSString,AnyObject>()
+    
+    var local: String = ""
+    var responsavel: String = ""
+    var filtro: String = ""
     var tarefas: Array<Array<String>> = []
     var formatter = DateFormatter()
     var dataInicio = Date()
@@ -44,8 +48,12 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         view.frame.size.width = InfoGlobal.getWidth()
         
         
+        local = locais[0]
+        responsavel = responsaveis[0]
+        
         inicioButton.setTitle(InfoGlobal.getDataAtual(tipo: "completaHora"), for: .normal)
         finalButton.setTitle(InfoGlobal.getDataAtual(tipo: "completaHora"), for: .normal)
+        
         
     }
     
@@ -105,22 +113,6 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         }
     }
     
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier=="selecionarData"){
-            let dataVC = segue.destination as? CalendarioDataHora
-            dataVC?.dataDelegate = self
-            dataVC?.indiceHora = InfoGlobal.getDataAtual(tipo: "hora24")
-            dataVC?.indiceDia = InfoGlobal.getDataAtual(tipo: "dia")
-            dataVC?.indiceMes = InfoGlobal.getDataAtual(tipo: "mes")
-            dataVC?.indiceAno = Int(InfoGlobal.getDataAtual(tipo: "ano"))!
-        }
-        if(segue.identifier=="novaTarefa"){
-            let tarefaVC = segue.destination as? NovaTarefa
-            tarefaVC?.tarefaDelegate = self
-        }
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tarefas.count
     }
@@ -161,6 +153,18 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         
     }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch pickerView {
+        case localPickerView:
+            local = locais[row]
+            break
+        case responsavelPickerView:
+            responsavel = responsaveis[row]
+        default:
+            break
+        }
+    }
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         switch pickerView {
@@ -194,37 +198,75 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         
     }
     
+    func retornoPesquisa(selecionado: String) {
+        
+        if(filtro=="local"){
+            for i in 0...locais.count-1{
+                if(locais[i] == selecionado){
+                    localPickerView.selectRow(i, inComponent: 0, animated: true)
+                    local = selecionado
+                }
+            }
+        } else {
+            for i in 0...responsaveis.count-1{
+                if(responsaveis[i] == selecionado){
+                    responsavelPickerView.selectRow(i, inComponent: 0, animated: true)
+                    responsavel = selecionado
+                }
+            }
+        }
+    }
+    
     @IBAction func pesquisarLocalButton(_ sender: Any) {
-        view.bringSubview(toFront: efeitoImageView)
-        pesquisarLocalView.center = view.center
-        view.addSubview(pesquisarLocalView)
-        pesquisarLocalView.load()
+        
+        filtro = "local"
+        let vc = storyboard?.instantiateViewController(withIdentifier: "pesquisaSimples") as? PesquisaSimples
+        vc?.dataArray = self.locais
+        vc?.pesquisaDelegate = self
+        present(vc!, animated: true, completion: nil)
         
     }
     
     @IBAction func inicioButtonClick(_ sender: Any) {
         
         dataButton = 1
-        prepare(for: UIStoryboardSegue.init(identifier: "selecionarData", source: self, destination: self), sender: nil)
-        performSegue(withIdentifier: "selecionarData", sender: self)
+        let dataVC = storyboard?.instantiateViewController(withIdentifier: "calendarioDataHora") as? CalendarioDataHora
+        dataVC?.dataDelegate = self
+        dataVC?.indiceHora = InfoGlobal.getDataAtual(tipo: "hora24")
+        dataVC?.indiceDia = InfoGlobal.getDataAtual(tipo: "dia")
+        dataVC?.indiceMes = InfoGlobal.getDataAtual(tipo: "mes")
+        dataVC?.indiceAno = Int(InfoGlobal.getDataAtual(tipo: "ano"))!
+        present(dataVC!, animated: true, completion: nil)
         
     }
     @IBAction func finalButtonClick(_ sender: Any) {
         
         dataButton = 2
-        prepare(for: UIStoryboardSegue.init(identifier: "selecionarData", source: self, destination: self), sender: nil)
-        performSegue(withIdentifier: "selecionarData", sender: self)
+        let dataVC = storyboard?.instantiateViewController(withIdentifier: "calendarioDataHora") as? CalendarioDataHora
+        dataVC?.dataDelegate = self
+        dataVC?.indiceHora = InfoGlobal.getDataAtual(tipo: "hora24")
+        dataVC?.indiceDia = InfoGlobal.getDataAtual(tipo: "dia")
+        dataVC?.indiceMes = InfoGlobal.getDataAtual(tipo: "mes")
+        dataVC?.indiceAno = Int(InfoGlobal.getDataAtual(tipo: "ano"))!
+        present(dataVC!, animated: true, completion: nil)
     }
     
     @IBAction func pesquisarResponsavelButton(_ sender: Any) {
         
+        filtro = "responsavel"
+        let vc = storyboard?.instantiateViewController(withIdentifier: "pesquisaSimples") as? PesquisaSimples
+        vc?.dataArray = self.responsaveis
+        vc?.pesquisaDelegate = self
+        present(vc!, animated: true, completion: nil)
         
         
     }
     
     @IBAction func novaTarefaButton(_ sender: Any) {
         
-        performSegue(withIdentifier: "novaTarefa", sender: self)
+        let tarefaVC = storyboard?.instantiateViewController(withIdentifier: "novaTarefa") as? NovaTarefa
+        tarefaVC?.tarefaDelegate = self
+        present(tarefaVC!, animated: true, completion: nil)
         
     }
     @IBAction func removerTarefaButton(_ sender: Any) {
@@ -236,18 +278,39 @@ class NovoEvento: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
         
     }
     
+    @IBAction func confirmarButton(_ sender: Any) {
+        
+        retornoMap.setObject(tituloTextField.text! as AnyObject, forKey: "titulo")
+        retornoMap.setObject(local as AnyObject, forKey: "local")
+        retornoMap.setObject(responsavel as AnyObject, forKey: "responsavel")
+        retornoMap.setObject(tarefas as AnyObject, forKey: "tarefa")
+        print(retornoMap)
+        
+        
+    }
     
     @IBAction func cancelarEventoButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func cancelarPesquisaLocalButton(_ sender: Any) {
-        UIView.animate(withDuration: 0.3, animations: { 
-            self.pesquisarLocalView.alpha = 0
-        }) { (finished) in
-            self.pesquisarLocalView.removeFromSuperview()
-            self.view.bringSubview(toFront: self.mainScrollView)
-            self.view.bringSubview(toFront: self.mainNavigationBar)
-        }
-    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

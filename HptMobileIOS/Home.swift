@@ -12,10 +12,7 @@ import UIKit
 class HomeView: UITabBarController, UITabBarControllerDelegate {
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        print(Usuario.getNome())
-        
+        super.viewDidLoad()        
         
     }
     private func prepararTab(tab: Int){
