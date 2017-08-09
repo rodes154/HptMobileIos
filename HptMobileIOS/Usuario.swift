@@ -8,31 +8,20 @@
 
 import Foundation
 
-class Usuario{
+class Usuario: NSObject{
     
-    private static var id = Int()
-    private static var nome = String()
-    private static var hash = String()
+    var id: String = ""
+    var nome: String = ""
+    var md5: String = ""
     
-    public static func getNome () -> String{
-        return self.nome
-    }
-    public static func setNome(nome: String){
-        self.nome = nome
-    }
-    
-    public static func getHash() -> String{
-        return self.hash
-    }
-    public static func setHash(hash: String){
-        self.hash = hash
-    }
-    
-    public static func getId() -> Int{
-        return self.id
-    }
-    public static func setId(id: Int){
-        self.id = id
+    init(JsonDict: Dictionary<String, AnyObject>) {
+        
+        super.init()
+        
+        self.setValuesForKeys(JsonDict)
+        
+        print("\(id)    \(nome)     \(md5)")
+        
     }
     
     

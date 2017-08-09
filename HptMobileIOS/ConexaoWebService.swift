@@ -11,7 +11,7 @@ import UIKit
 
 class ConexaoWebService{
     
-    private var endereco = "http://192.168.0.116:8080/HptMobileWS/"
+    private var endereco = "http://192.168.0.210:8080/HptMobileWS/"
     //private var endereco = "http://177.69.102.161:22119/HptMobileWS/"
     private var requestUrl :URLRequest?
     private var parametros = ""
@@ -55,6 +55,9 @@ class ConexaoWebService{
         let task = URLSession.shared.dataTask(with: requestUrl!) { data, response, error in
     
             let json = try? JSONSerialization.jsonObject(with: data!, options: [])
+            print(json)
+            
+            let usr: Usuario = Usuario(JsonDict: json! as! Dictionary<String, AnyObject>)
             
             completionHandler(json as AnyObject)
             
